@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Skydash Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/feather/feather.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="{{asset('/assets/vendors/feather/feather.css')}}">
+  <link rel="stylesheet" href="{{asset('/assets/vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('/assets/vendors/css/vendor.bundle.base.css')}}">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+  <link rel="stylesheet" href="{{ asset('/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+  <link rel="stylesheet" href="{{ asset('/assets/vendors/ti-icons/css/themify-icons.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/assets/js/select.dataTables.min.css') }}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
@@ -509,7 +509,7 @@
                     <div class="mt-3">
                       <p class="text-muted">Downloads</p>
                       <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div> 
+                    </div>
                   </div>
                   <canvas id="order-chart"></canvas>
                 </div>
@@ -543,7 +543,7 @@
                               <h1 class="text-primary">$34040</h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
                               <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                            </div>  
+                            </div>
                             </div>
                           <div class="col-md-12 col-xl-9">
                             <div class="row">
@@ -623,7 +623,7 @@
                               <h1 class="text-primary">$34040</h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
                               <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                            </div>  
+                            </div>
                             </div>
                           <div class="col-md-12 col-xl-9">
                             <div class="row">
@@ -722,7 +722,7 @@
                           <th>Price</th>
                           <th>Date</th>
                           <th>Status</th>
-                        </tr>  
+                        </tr>
                       </thead>
                       <tbody>
                         <tr>
@@ -933,14 +933,14 @@
                             <p class="mb-0">687</p>
                           </div>
                         </div>
-                      </div>  
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 stretch-card grid-margin grid-margin-md-0">
                   <div class="card data-icon-card-primary">
                     <div class="card-body">
-                      <p class="card-title text-white">Number of Meetings</p>                      
+                      <p class="card-title text-white">Number of Meetings</p>
                       <div class="row">
                         <div class="col-8 text-white">
                           <h3>34040</h3>
@@ -1042,7 +1042,7 @@
                   </div>
                 </div>
 
-                
+
               </div>
             </div>
         </div>
@@ -1054,13 +1054,13 @@
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
           </div>
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span> 
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
           </div>
-        </footer> 
+        </footer>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
-    </div>   
+    </div>
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
