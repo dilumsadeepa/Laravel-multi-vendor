@@ -185,8 +185,8 @@ $time = Carbon::now()->format('H:i:s');
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Add Product</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">View Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{url('addproduct')}}">Add Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{url('viewproduct')}}">View Product</a></li>
               </ul>
             </div>
           </li>
