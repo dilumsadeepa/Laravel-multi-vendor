@@ -1,3 +1,8 @@
+<?php
+use Carbon\Carbon;
+$date = Carbon::now()->format('Y-m-d');
+$time = Carbon::now()->format('H:i:s');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,11 +29,11 @@
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    
+
 
     {{-- nav start --}}
 
-    @include('seller.sellernav') 
+    @include('seller.sellernav')
 
     {{-- nav end --}}
 
@@ -55,7 +60,7 @@
         </div>
       </div>
 
-      
+
       {{-- <div id="right-sidebar" class="settings-panel">
         <i class="settings-close ti-close"></i>
         <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
@@ -211,8 +216,8 @@
 
 
       <!-- start side bar -->
-      
-      @include('seller.sellersidebar') 
+
+      @include('seller.sellersidebar')
 
 
       {{-- end if sidebar --}}
@@ -232,50 +237,34 @@
                   <h3 class="font-weight-bold">Welcome Aamir</h3>
                   <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
                 </div>
-                <div class="col-12 col-xl-4">
-                 <div class="justify-content-end d-flex">
-                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                     <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                      <a class="dropdown-item" href="#">January - March</a>
-                      <a class="dropdown-item" href="#">March - June</a>
-                      <a class="dropdown-item" href="#">June - August</a>
-                      <a class="dropdown-item" href="#">August - November</a>
-                    </div>
-                  </div>
-                 </div>
-                </div>
+
               </div>
             </div>
           </div>
 
+
           <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
+            <div class="col-md-6 grid-margin stretch-card">
               <div class="card tale-bg">
                 <div class="card-people mt-auto">
-                  <img src="images/dashboard/people.svg" alt="people" height="300px">
+                  <img src="images/dashboard/people.svg" alt="people">
                   <div class="weather-info">
                     <div class="d-flex">
                       <div>
-                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                        {{-- <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>Stats @</h2> --}}
                       </div>
                       <div class="ml-2">
-                        <h4 class="location font-weight-normal">Bangalore</h4>
-                        <h6 class="font-weight-normal">India</h6>
+                        <h4 class="location font-weight-normal">{{ $date }}</h4>
+                        <h6 class="font-weight-normal">{{ $time }}</h6>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12 grid-margin transparent">
+            <div class="col-md-6 grid-margin transparent">
               <div class="row">
-                <div class="col-md-3 mb-4 stretch-card transparent">
+                <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
                     <div class="card-body">
                       <p class="mb-4">Today’s Bookings</p>
@@ -284,7 +273,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 mb-4 stretch-card transparent">
+                <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-dark-blue">
                     <div class="card-body">
                       <p class="mb-4">Total Bookings</p>
@@ -293,29 +282,29 @@
                     </div>
                   </div>
                 </div>
-              
-                <div class="col-md-3 mb-4 stretch-card transparent">
-                  <div class="card card-dark-blue">
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                  <div class="card card-light-blue">
                     <div class="card-body">
-                      <p class="mb-4">Total Bookings</p>
-                      <p class="fs-30 mb-2">61344</p>
-                      <p>22.00% (30 days)</p>
+                      <p class="mb-4">Number of Meetings</p>
+                      <p class="fs-30 mb-2">34040</p>
+                      <p>2.00% (30 days)</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 mb-4 stretch-card transparent">
-                  <div class="card card-tale">
+                <div class="col-md-6 stretch-card transparent">
+                  <div class="card card-light-danger">
                     <div class="card-body">
-                      <p class="mb-4">Today’s Bookings</p>
-                      <p class="fs-30 mb-2">4006</p>
-                      <p>10.00% (30 days)</p>
+                      <p class="mb-4">Number of Clients</p>
+                      <p class="fs-30 mb-2">47033</p>
+                      <p>0.22% (30 days)</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
 
 
 
@@ -341,7 +330,7 @@
                     <div class="mt-3">
                       <p class="text-muted">Downloads</p>
                       <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div> 
+                    </div>
                   </div>
                   <canvas id="order-chart"></canvas>
                 </div>
@@ -363,7 +352,7 @@
           </div> --}}
 
 
-{{--           
+{{--
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card position-relative">
@@ -378,7 +367,7 @@
                               <h1 class="text-primary">$34040</h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
                               <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                            </div>  
+                            </div>
                             </div>
                           <div class="col-md-12 col-xl-9">
                             <div class="row">
@@ -458,7 +447,7 @@
                               <h1 class="text-primary">$34040</h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
                               <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                            </div>  
+                            </div>
                             </div>
                           <div class="col-md-12 col-xl-9">
                             <div class="row">
@@ -561,7 +550,7 @@
                           <th>Price</th>
                           <th>Date</th>
                           <th>Status</th>
-                        </tr>  
+                        </tr>
                       </thead>
                       <tbody>
                         <tr>
@@ -777,14 +766,14 @@
                             <p class="mb-0">687</p>
                           </div>
                         </div>
-                      </div>  
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 stretch-card grid-margin grid-margin-md-0">
                   <div class="card data-icon-card-primary">
                     <div class="card-body">
-                      <p class="card-title text-white">Number of Meetings</p>                      
+                      <p class="card-title text-white">Number of Meetings</p>
                       <div class="row">
                         <div class="col-8 text-white">
                           <h3>34040</h3>
@@ -891,7 +880,7 @@
                   </div>
                 </div>
 
-                
+
               </div>
             </div>
         </div>
@@ -900,14 +889,14 @@
 
         <!-- footer start -->
 
-          @include('seller.sellerfooter') 
-          
+          @include('seller.sellerfooter')
+
         <!-- footer end -->
 
 
       </div>
       <!-- main-panel ends -->
-    </div>   
+    </div>
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
