@@ -1,172 +1,286 @@
-<form method="POST" action="{{ route('register') }}">
-    @csrf
+<x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
 
-    <h1>Register:</h1>
+        <x-jet-validation-errors class="mb-4" />
 
-    <!-- One "tab" for each step in the form: -->
-    <div class="tab">Name:
-      <p><input placeholder="First name..." oninput="this.className = ''"></p>
-      <p><input placeholder="Last name..." oninput="this.className = ''"></p>
-    </div>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-    <div class="tab">Contact Info:
-      <p><input placeholder="E-mail..." oninput="this.className = ''"></p>
-      <p><input placeholder="Phone..." oninput="this.className = ''"></p>
-    </div>
+            <p id="err" class="err"></p>
 
-    <div class="tab">Birthday:
-      <p><input placeholder="dd" oninput="this.className = ''"></p>
-      <p><input placeholder="mm" oninput="this.className = ''"></p>
-      <p><input placeholder="yyyy" oninput="this.className = ''"></p>
-    </div>
+            <div class="step1" id="step1">
 
-    <div class="tab">Login Info:
-      <p><input placeholder="Username..." oninput="this.className = ''"></p>
-      <p><input placeholder="Password..." oninput="this.className = ''"></p>
-    </div>
+                <div>
+                    <x-jet-label for="name" value="{{ __('First Name') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="fname" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="first name" />
+                </div>
 
-    <div style="overflow:auto;">
-      <div style="float:right;">
-        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-      </div>
-    </div>
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Last Name') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="lname" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="last name" />
+                </div>
 
-    <!-- Circles which indicates the steps of the form: -->
-    <div style="text-align:center;margin-top:40px;">
-      <span class="step"></span>
-      <span class="step"></span>
-      <span class="step"></span>
-      <span class="step"></span>
-    </div>
-
-    </form>
+            </div>
 
 
-    <style>
-        /* Style the form */
-#regForm {
-  background-color: #ffffff;
-  margin: 100px auto;
-  padding: 40px;
-  width: 70%;
-  min-width: 300px;
-}
+            <div class="step2" id="step2">
 
-/* Style the input fields */
-input {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
-}
+                <div class="mt-4">
+                    <x-jet-label for="email" value="{{ __('Email') }}" />
+                    <x-jet-input id="email" class="block mt-1 w-full" id="email" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                </div>
 
-/* Mark input boxes that gets an error on validation: */
-input.invalid {
-  background-color: #ffdddd;
-}
+                <div class="mt-4">
+                    <x-jet-label for="password" value="{{ __('Password') }}" />
+                    <x-jet-input id="password" class="block mt-1 w-full" id="pwd" type="password" name="password" required autocomplete="new-password" />
+                </div>
 
-/* Hide all steps by default: */
-.tab {
-  display: none;
-}
+                <div class="mt-4">
+                    <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                    <x-jet-input id="password_confirmation" id="cpwd" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                </div>
 
-/* Make circles that indicate the steps of the form: */
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
-
-/* Mark the active step: */
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #04AA6D;
-}
-    </style>
+            </div>
 
 
-<script>
-    var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+            <div class="step3" id="step3">
 
-function showTab(n) {
-  // This function will display the specified tab of the form ...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  // ... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  // ... and run a function that displays the correct step indicator:
-  fixStepIndicator(n)
-}
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Mobile phone Number') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="tel" type="text" name="tel" :value="old('tel')" required autofocus autocomplete="tel" />
+                </div>
 
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form... :
-  if (currentTab >= x.length) {
-    //...the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Gender') }}" />
+                    <select name="gender" id="gender" class="block mt-1 w-full" required autofocus>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    {{-- <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> --}}
+                </div>
 
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false:
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
+            </div>
 
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class to the current step:
-  x[n].className += " active";
-}
-</script>
+            <div class="step4" id="step4">
+
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Address Line 01') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="a1" type="text" name="addressl1" :value="old('address')" required autofocus autocomplete="address line1" />
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Address Line 02') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="a2" type="text" name="addressl2" :value="old('address')" required autofocus autocomplete="address line2" />
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Address Line 03') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full"  type="text" name="addressl3" :value="old('address')" autofocus autocomplete="address line3" />
+                </div>
+
+            </div>
+
+
+            <div class="step5" id="step5">
+
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('City') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="city" type="text" name="city" :value="old('city')" required autofocus autocomplete="city" />
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Country') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="country" type="text" name="country" :value="old('country')" required autofocus autocomplete="country" />
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Postal Code') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" type="text" id="pcode" name="postalcode" :value="old('postalcode')" required autofocus autocomplete="postalcode" />
+                </div>
+
+            </div>
+
+            <div class="step6" id="step6">
+                <div class="mt-4">
+                    <x-jet-label for="name" value="{{ __('Role') }}" />
+                    <select name="roleid" id="role" class="block mt-1 w-full" required autofocus>
+                        <option value="">Select One</option>
+                        <option value="2">Seller</option>
+                        <option value="3">Customer</option>
+                    </select>
+                    {{-- <x-jet-input id="name" class="block mt-1 w-full" type="text" name="tel" :value="old('tel')" required autofocus autocomplete="name" /> --}}
+                </div>
+
+                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                    <div class="mt-4">
+                        <x-jet-label for="terms">
+                            <div class="flex items-center">
+                                <x-jet-checkbox name="terms" id="terms" required />
+
+                                <div class="ml-2">
+                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                    ]) !!}
+                                </div>
+                            </div>
+                        </x-jet-label>
+                    </div>
+                @endif
+
+                <div class="flex items-center justify-end mt-4">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                        {{ __('Already registered?') }}
+                    </a>
+
+                    <x-jet-button class="ml-4" id="rebtn">
+                        {{ __('Register') }}
+                    </x-jet-button>
+                </div>
+            </div>
+
+        </form>
+        <div class="flex items-center justify-end mt-4">
+            <button class="btn-next" onclick="prestep()" id="prebtn">Previous</button>
+            <button class="btn-next" onclick="changestep()" id="nextbtn">Next</button>
+        </div>
+
+        <style>
+
+            .step2{
+                display: none;
+            }
+            .step3{
+                display: none;
+            }
+            .step4{
+                display: none;
+            }
+            .step5{
+                display: none;
+            }
+            .step6{
+                display: none;
+            }
+
+            .btn-next{
+                padding: 15px;
+                margin: 15px;
+                background: #0d1b2a;
+
+                width: 100px;
+                color: white;
+                border-radius: 14px;
+            }
+
+            .btn-next:hover{
+                background: #415a77;  /* fallback for old browsers */
+
+                width: 150px;
+            }
+
+            #prebtn{
+                display: none;
+            }
+
+            .err{
+                color: red;
+            }
+
+
+
+        </style>
+
+
+        <script>
+
+            let steps = 2;
+            let prstep = 1;
+
+
+            function changestep() {
+                var st = "step"+steps;
+                var pr = "step"+prstep;
+
+                document.getElementById(st).style.display = 'inline';
+                document.getElementById(pr).style.display = 'none';
+                steps = steps + 1;
+                prstep = prstep + 1;
+
+                if (steps == 7) {
+                    document.getElementById('nextbtn').style.display = 'none';
+                    cheacknull();
+                }else{
+                    document.getElementById('nextbtn').style.display = 'inline';
+                }
+
+                if (prstep == 1) {
+                    document.getElementById('prebtn').style.display = 'none';
+                }else{
+                    document.getElementById('prebtn').style.display = 'inline';
+                }
+            }
+
+            function prestep() {
+                steps = steps - 1;
+                prstep = prstep - 1;
+                var st = "step"+steps;
+                var pr = "step"+prstep;
+
+
+
+                document.getElementById(st).style.display = 'none';
+                document.getElementById(pr).style.display = 'inline';
+
+
+                if (prstep == 1) {
+                    document.getElementById('prebtn').style.display = 'none';
+                }else{
+                    document.getElementById('prebtn').style.display = 'inline';
+                }
+
+                if (steps == 7) {
+                    document.getElementById('nextbtn').style.display = 'none';
+                }else{
+                    document.getElementById('nextbtn').style.display = 'inline';
+                }
+
+
+
+            }
+
+
+            function cheacknull() {
+                if (document.getElementById('fname').value == "" &&
+                document.getElementById('lname').value == "" &&
+                document.getElementById('email').value == "" &&
+                document.getElementById('pwd').value == "" &&
+                document.getElementById('cpwd').value == "" &&
+                document.getElementById('tel').value == "" &&
+                document.getElementById('gender').value == "" &&
+                document.getElementById('a1').value == "" &&
+                document.getElementById('a2').value == "" &&
+                document.getElementById('city').value == "" &&
+                document.getElementById('country').value == "" &&
+                document.getElementById('pcode').value == "" )
+                {
+                    document.getElementById('err').innerHTML = "Fill all the filds";
+                    document.getElementById('rebtn').style.display = 'none';
+                }else{
+                    document.getElementById('err').innerHTML = "";
+                    document.getElementById('rebtn').style.display = 'inline';
+                }
+            }
+
+
+        </script>
+
+
+
+    </x-jet-authentication-card>
+</x-guest-layout>
