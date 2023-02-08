@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Models\Catagory;
+use App\Http\Requests\StoreCatagoryRequest;
+use App\Http\Requests\UpdateCatagoryRequest;
 
-class ProductController extends Controller
+class CatagoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('seller.viewproduct');
+        //
     }
 
     /**
@@ -25,16 +25,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('seller.addproduct');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
+     * @param  \App\Http\Requests\StoreCatagoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreCatagoryRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Catagory  $catagory
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Catagory $catagory)
     {
         //
     }
@@ -53,10 +53,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Catagory  $catagory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Catagory $catagory)
     {
         //
     }
@@ -64,11 +64,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Http\Requests\UpdateCatagoryRequest  $request
+     * @param  \App\Models\Catagory  $catagory
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateCatagoryRequest $request, Catagory $catagory)
     {
         //
     }
@@ -76,10 +76,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Catagory  $catagory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Catagory $catagory)
     {
         //
     }

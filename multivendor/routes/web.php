@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::middleware([
 
 
 Route::resource('seller', SellerController::class);
+Route::get('/viewproduct', [ProductController::class, 'index']);
+Route::get('/addproduct', [ProductController::class, 'create']);
