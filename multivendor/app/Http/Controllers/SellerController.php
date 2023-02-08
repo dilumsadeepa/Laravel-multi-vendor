@@ -25,7 +25,7 @@ class SellerController extends Controller
      */
     public function create()
     {
-        //
+        return view('seller.index');
     }
 
     /**
