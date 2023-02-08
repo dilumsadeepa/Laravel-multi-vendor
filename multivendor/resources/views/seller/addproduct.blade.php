@@ -140,7 +140,7 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Membership</label>
+                            <label class="col-sm-3 col-form-label">Product</label>
                             <div class="col-sm-4">
                               <div class="form-check">
                                 <label class="form-check-label">
