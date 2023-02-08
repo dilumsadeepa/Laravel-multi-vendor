@@ -29,4 +29,4 @@ Route::middleware([
 });
 
 
-Route::get('/createshop', [SellerController::class, 'index']);
+Route::resource('seller', SellerController::class);
