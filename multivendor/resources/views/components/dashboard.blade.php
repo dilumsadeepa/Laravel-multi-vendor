@@ -172,8 +172,8 @@ $time = Carbon::now()->format('H:i:s');
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{route('seller.index')}}">Create Shop</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">View Shop</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('shop.create')}}">Create Shop</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('shop.index')}}">View Shop</a></li>
               </ul>
             </div>
           </li>
@@ -185,8 +185,8 @@ $time = Carbon::now()->format('H:i:s');
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{{url('addproduct')}}">Add Product</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('viewproduct')}}">View Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('product.create')}}">Add Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('product.index')}}">View Product</a></li>
               </ul>
             </div>
           </li>
