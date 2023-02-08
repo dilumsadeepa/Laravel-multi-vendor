@@ -1,3 +1,8 @@
+<?php
+use Carbon\Carbon;
+$date = Carbon::now()->format('Y-m-d');
+$time = Carbon::now()->format('H:i:s');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,17 +29,13 @@
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    
+
 
     {{-- nav start --}}
 
-    @include('seller.sellernav') 
+    @include('seller.sellernav')
 
     {{-- nav end --}}
-
-
-
-
 
 
     <!-- partial -->
@@ -58,7 +59,9 @@
           </div>
         </div>
       </div>
-      <div id="right-sidebar" class="settings-panel">
+
+
+      {{-- <div id="right-sidebar" class="settings-panel">
         <i class="settings-close ti-close"></i>
         <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
           <li class="nav-item">
@@ -204,116 +207,26 @@
                 <small class="text-muted my-auto">47 min</small>
               </li>
             </ul>
-          </div>
+          </div> --}}
           <!-- chat tab ends -->
-        </div>
-      </div>
+        {{-- </div> --}}
+      {{-- </div> --}}
       <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">UI Elements</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-              <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Form elements</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Charts</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Tables</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-              <i class="icon-contract menu-icon"></i>
-              <span class="menu-title">Icons</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-              <i class="icon-ban menu-icon"></i>
-              <span class="menu-title">Error pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="error">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/documentation/documentation.html">
-              <i class="icon-paper menu-icon"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+
+
+
+      <!-- start side bar -->
+
+      @include('seller.sellersidebar')
+
+
+      {{-- end if sidebar --}}
+
+
+
+
+
+
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -324,24 +237,12 @@
                   <h3 class="font-weight-bold">Welcome Aamir</h3>
                   <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
                 </div>
-                <div class="col-12 col-xl-4">
-                 <div class="justify-content-end d-flex">
-                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                     <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                      <a class="dropdown-item" href="#">January - March</a>
-                      <a class="dropdown-item" href="#">March - June</a>
-                      <a class="dropdown-item" href="#">June - August</a>
-                      <a class="dropdown-item" href="#">August - November</a>
-                    </div>
-                  </div>
-                 </div>
-                </div>
+
               </div>
             </div>
           </div>
+
+
           <div class="row">
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card tale-bg">
@@ -350,11 +251,11 @@
                   <div class="weather-info">
                     <div class="d-flex">
                       <div>
-                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                        {{-- <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>Stats @</h2> --}}
                       </div>
                       <div class="ml-2">
-                        <h4 class="location font-weight-normal">Bangalore</h4>
-                        <h6 class="font-weight-normal">India</h6>
+                        <h4 class="location font-weight-normal">{{ $date }}</h4>
+                        <h6 class="font-weight-normal">{{ $time }}</h6>
                       </div>
                     </div>
                   </div>
@@ -404,7 +305,10 @@
               </div>
             </div>
           </div>
-          <div class="row">
+
+
+
+          {{-- <div class="row">
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -426,7 +330,7 @@
                     <div class="mt-3">
                       <p class="text-muted">Downloads</p>
                       <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div> 
+                    </div>
                   </div>
                   <canvas id="order-chart"></canvas>
                 </div>
@@ -445,7 +349,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
+
+
+{{--
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card position-relative">
@@ -460,7 +367,7 @@
                               <h1 class="text-primary">$34040</h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
                               <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                            </div>  
+                            </div>
                             </div>
                           <div class="col-md-12 col-xl-9">
                             <div class="row">
@@ -540,7 +447,7 @@
                               <h1 class="text-primary">$34040</h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
                               <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                            </div>  
+                            </div>
                             </div>
                           <div class="col-md-12 col-xl-9">
                             <div class="row">
@@ -625,8 +532,12 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
+          </div> --}}
+
+
+
+
+          {{-- <div class="row">
             <div class="col-md-7 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -639,7 +550,7 @@
                           <th>Price</th>
                           <th>Date</th>
                           <th>Status</th>
-                        </tr>  
+                        </tr>
                       </thead>
                       <tbody>
                         <tr>
@@ -750,8 +661,13 @@
 								</div>
 							</div>
             </div>
-          </div>
-          <div class="row">
+          </div> --}}
+
+
+
+
+
+          {{-- <div class="row">
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card">
                 <div class="card-body">
@@ -850,14 +766,14 @@
                             <p class="mb-0">687</p>
                           </div>
                         </div>
-                      </div>  
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 stretch-card grid-margin grid-margin-md-0">
                   <div class="card data-icon-card-primary">
                     <div class="card-body">
-                      <p class="card-title text-white">Number of Meetings</p>                      
+                      <p class="card-title text-white">Number of Meetings</p>
                       <div class="row">
                         <div class="col-8 text-white">
                           <h3>34040</h3>
@@ -930,23 +846,28 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
+
+
+
+
+
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title">Advanced Table</p>
+                  <p class="card-title">Orders</p>
                   <div class="row">
                     <div class="col-12">
                       <div class="table-responsive">
                         <table id="example" class="display expandable-table" style="width:100%">
                           <thead>
                             <tr>
-                              <th>Quote#</th>
+                              <th>Order No #</th>
                               <th>Product</th>
-                              <th>Business type</th>
-                              <th>Policy holder</th>
-                              <th>Premium</th>
+                              <th>Buyer Name</th>
+                              <th>Quentity</th>
+                              <th>Price</th>
                               <th>Status</th>
                               <th>Updated at</th>
                               <th></th>
@@ -959,25 +880,23 @@
                   </div>
                 </div>
 
-                
+
               </div>
             </div>
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-          </div>
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span> 
-          </div>
-        </footer> 
-        <!-- partial -->
+
+
+        <!-- footer start -->
+
+          @include('seller.sellerfooter')
+
+        <!-- footer end -->
+
+
       </div>
       <!-- main-panel ends -->
-    </div>   
+    </div>
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
