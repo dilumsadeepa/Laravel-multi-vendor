@@ -30,3 +30,4 @@ Route::middleware([
 
 
 Route::resource('seller', SellerController::class);
+Route::get('/addproduct', [SellerController::class, 'create']);
