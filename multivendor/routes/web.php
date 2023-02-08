@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('seller.index');
 });
 
+Route::get('/sellerdashboard', function () {
+    return view('seller.createshop');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
