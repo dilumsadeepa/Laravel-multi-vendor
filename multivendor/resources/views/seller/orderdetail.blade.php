@@ -11,6 +11,9 @@
                 <button type="button" class="btn btn-secondary m-3">Back</button>
             </div>
           </div>
+
+
+
       
           <div class="row">
             <div class="col-lg-4">
@@ -23,13 +26,57 @@
                     {{-- <button type="button" class="btn btn-primary">Follow</button> --}}
                     <button type="button" class="btn btn-outline-primary ms-1">Message</button>
                   </div>
+
+<hr>
+{{-- tracking number start --}}
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Tracking Number</h4>
+                    <p class="card-description">
+                      Use the <code>.form-inline</code> class to display a series of labels, form controls, and buttons on a single horizontal row
+                    </p>
+                    <form class="form-inline">
+                      <label class="sr-only" for="inlineFormInputName2">Name</label>
+                      <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+                    
+                      <button type="submit" class="btn btn-primary mb-2 ml-5">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+{{-- tracking number end --}}
+
                 </div>
               </div>
             </div>
 
+
+
+           
+
             <div class="col-lg-8">
               <div class="card mb-4">
                 <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                          <div class="card tale-bg">
+                            <div class="card-people mt-auto">
+                              <img src="images/dashboard/online-shopping-concept.svg" alt="people" style="max-height: 310px">
+                              <div class="weather-info">
+                                <div class="d-flex">
+                                  <div>
+                                    {{-- <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>Stats @</h2> --}}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
                   <div class="row">
                     <div class="col-sm-3">
                       <p class="mb-0">Full Name</p>
@@ -118,14 +165,7 @@
                   <hr>
 
                   
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Address</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                    </div>
-                  </div>
+                
                 </div>
               </div>
 

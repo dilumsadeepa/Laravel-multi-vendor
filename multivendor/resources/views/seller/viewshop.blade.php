@@ -183,7 +183,7 @@
         <b>No of Sell Items</b> <a class="float-right">13,287</a>
         </li>
         </ul>
-        <a href="#" class="btn btn-primary btn-block"><b>Create New Shop</b></a>
+        <a href="{{route('shop.create')}}" class="btn btn-primary btn-block"><b>Create New Shop</b></a>
         </div>
 
         </div>
@@ -364,12 +364,14 @@
             
                     <div class="form-group mt-3">
                         <label>Shop Category</label>
-                        <select class="js-example-basic-multiple w-100" multiple="multiple">
+                        <select class="js-example-basic-multiple" style="width: 100%" multiple="multiple">
                           <option value="AL">Art</option>
                           <option value="WY">Clothing</option>
                           <option value="AM">Technology</option>
                     </select>
                   </div>
+
+                </div>
             
                 <input type="hidden" value="{{ Auth::id() }}">
             
