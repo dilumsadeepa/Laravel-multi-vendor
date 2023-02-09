@@ -41,7 +41,17 @@
           </span>
         </div>
 
+        <div class="form-group mt-3">
+            <label>Shop Category</label>
+            <select class="js-example-basic-multiple w-100" multiple="multiple">
+              <option value="AL">Art</option>
+              <option value="WY">Clothing</option>
+              <option value="AM">Technology</option>
+        </select>
+      </div>
+
     <input type="hidden" value="{{ Auth::id() }}">
+
 
 
 
