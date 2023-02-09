@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
+use App\Models\ShopListings;
+use App\Http\Requests\StoreShopListingsRequest;
+use App\Http\Requests\UpdateShopListingsRequest;
 
-class OrderController extends Controller
+class ShopListingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('seller.vieworders');
+        return view('seller.shopListings');
     }
 
     /**
@@ -25,16 +25,16 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('seller.orderdetail');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOrderRequest  $request
+     * @param  \App\Http\Requests\StoreShopListingsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrderRequest $request)
+    public function store(StoreShopListingsRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\ShopListings  $shopListings
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(ShopListings $shopListings)
     {
         //
     }
@@ -53,10 +53,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\ShopListings  $shopListings
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(ShopListings $shopListings)
     {
         //
     }
@@ -64,11 +64,11 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOrderRequest  $request
-     * @param  \App\Models\Order  $order
+     * @param  \App\Http\Requests\UpdateShopListingsRequest  $request
+     * @param  \App\Models\ShopListings  $shopListings
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrderRequest $request, Order $order)
+    public function update(UpdateShopListingsRequest $request, ShopListings $shopListings)
     {
         //
     }
@@ -76,10 +76,10 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\ShopListings  $shopListings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(ShopListings $shopListings)
     {
         //
     }

@@ -25,6 +25,14 @@ $time = Carbon::now()->format('H:i:s');
   <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+
+
+  {{-- Form external css for dashboards --}}
+  <link rel="stylesheet" href="{{ asset('vendors/select2/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
+
+
+{{-- End of Form external css for dashboards --}}
 </head>
 <body>
   <div class="container-scroller">
@@ -200,7 +208,7 @@ $time = Carbon::now()->format('H:i:s');
             </a>
             <div class="collapse" id="charts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">View Orders</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('vieworders')}}">View Orders</a></li>
               </ul>
             </div>
           </li>
@@ -276,6 +284,12 @@ $time = Carbon::now()->format('H:i:s');
   <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
+    {{-- form js  --}}
+    <script src="{{ asset('vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
+
+{{-- end form js --}}
+
   <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
   <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
@@ -294,14 +308,18 @@ $time = Carbon::now()->format('H:i:s');
   <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
 
+
+  {{-- form js  --}}
+  <script src="{{ asset('vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+  <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
   <script src="{{ asset('js/file-upload.js') }}"></script>
   <script src="{{ asset('js/typeahead.js') }}"></script>
   <script src="{{ asset('js/select2.js') }}"></script>
-  
 
 
-  
-  
+
+
+
 </body>
 
 </html>
