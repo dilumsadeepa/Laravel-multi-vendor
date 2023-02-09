@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\OrderController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +44,5 @@ Route::resource('shop', ShopController::class);
 Route::resource('product', ProductController::class);
 Route::get('/viewproduct', [ProductController::class, 'index']);
 Route::get('/addproduct', [ProductController::class, 'create']);
+Route::get('/vieworders', [OrderController::class, 'index']);
+Route::get('/orderdetail', [OrderController::class, 'create']);

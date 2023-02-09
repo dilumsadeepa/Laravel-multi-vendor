@@ -200,7 +200,7 @@ $time = Carbon::now()->format('H:i:s');
             </a>
             <div class="collapse" id="charts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">View Orders</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('vieworders')}}">View Orders</a></li>
               </ul>
             </div>
           </li>
