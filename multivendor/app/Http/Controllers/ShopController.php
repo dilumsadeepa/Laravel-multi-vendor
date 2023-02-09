@@ -36,7 +36,10 @@ class ShopController extends Controller
      */
     public function store(StoreShopRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        echo($request->title);
+
     }
 
     /**

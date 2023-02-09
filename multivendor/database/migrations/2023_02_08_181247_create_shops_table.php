@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('shopprofile');
             $table->string('shopdis');
             $table->string('sellerid');
+            $table->json('catagory');
             $table->timestamps();
         });
     }

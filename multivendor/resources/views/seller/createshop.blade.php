@@ -1,18 +1,25 @@
 <x-dashboard>
 
 <h3>create shop</h3>
-<form class="forms-sample">
+@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+    <br>
+<form class="forms-sample" action="{{route('shop.store')}}" enctype="multipart/form-data" method="post">
+    @csrf
     <div class="form-group">
       <label for="exampleInputName1">Shop Name</label>
-      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+      <input type="text" class="form-control" name="title" id="exampleInputName1" placeholder="Name">
     </div>
     <div class="form-group">
       <label for="shopDescription">Shop Description</label>
-      <textarea class="form-control" id="shopDescription" rows="4"></textarea>
+      <textarea class="form-control" name="shopdis" id="shopDescription" rows="4"></textarea>
     </div>
       <div class="form-group">
         <label>Profile Photo</label>
-        <input type="file" name="img[]" class="file-upload-default">
+        <input type="file" name="shopprofile" class="file-upload-default">
         <div class="input-group col-xs-12">
           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Profile Photo">
           <span class="input-group-append">
@@ -23,7 +30,7 @@
 
       <div class="form-group">
         <label>Cover Photo</label>
-        <input type="file" name="img[]" class="file-upload-default">
+        <input type="file" name="banner" class="file-upload-default">
         <div class="input-group col-xs-12">
           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Banner Image">
           <span class="input-group-append">
@@ -43,14 +50,14 @@
 
         <div class="form-group mt-3">
             <label>Shop Category</label>
-            <select class="js-example-basic-multiple w-100" multiple="multiple">
+            <select class="js-example-basic-multiple w-100" name="catagory" multiple="multiple">
               <option value="AL">Art</option>
               <option value="WY">Clothing</option>
               <option value="AM">Technology</option>
         </select>
       </div>
 
-    <input type="hidden" value="{{ Auth::id() }}">
+    <input type="hidden" name="sellerid" value="{{ Auth::id() }}">
 
 
 
