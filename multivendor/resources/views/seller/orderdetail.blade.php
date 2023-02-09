@@ -38,7 +38,7 @@
                     </p>
                     <form class="form-inline">
                       <label class="sr-only" for="inlineFormInputName2">Name</label>
-                      <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe">
+                      <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Tracking . . . .">
                     
                       <button type="submit" class="btn btn-primary mb-2 ml-5">Submit</button>
                     </form>
