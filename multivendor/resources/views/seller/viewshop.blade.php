@@ -309,7 +309,7 @@
 
         <div class="tab-pane" id="settings">
 
-            <form class="forms-sample">
+            <form class="forms-sample" action="{{route('shop.update',$shop->id)}}" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleInputName1">Shop Name</label>
                   <input type="text" class="form-control" id="exampleInputName1" value="{{$shop->title}}" placeholder="title">
@@ -353,7 +353,7 @@
 
                     <div class="form-group mt-3">
                         <label>Shop Category</label>
-                        <select class="js-example-basic-multiple w-100" multiple="multiple">
+                        <select class="js-example-basic-multiple" width="100%" multiple="multiple">
                             @foreach($cat as $ca)
                                 <option value="{{$ca}}">{{$ca}}</option>
                             @endforeach
