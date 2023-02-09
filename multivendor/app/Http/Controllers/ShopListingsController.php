@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ShopListings;
 use App\Http\Requests\StoreShopListingsRequest;
 use App\Http\Requests\UpdateShopListingsRequest;
+use Illuminate\Support\Facades\DB;
 
 class ShopListingsController extends Controller
 {
@@ -15,7 +16,8 @@ class ShopListingsController extends Controller
      */
     public function index()
     {
-        return view('seller.shoplistings');
+        $shops = DB::select('select * from shops');
+        return view('seller.shoplistings', compact('shops'));
     }
 
     /**

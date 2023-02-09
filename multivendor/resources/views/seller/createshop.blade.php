@@ -1,11 +1,16 @@
 <x-dashboard>
 
 <h3>create shop</h3>
-@if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <br>
 <form class="forms-sample" action="{{route('shop.store')}}" enctype="multipart/form-data" method="post">
     @csrf
@@ -50,14 +55,14 @@
 
         <div class="form-group mt-3">
             <label>Shop Category</label>
-            <select class="js-example-basic-multiple w-100" name="catagory" multiple="multiple">
-              <option value="AL">Art</option>
-              <option value="WY">Clothing</option>
-              <option value="AM">Technology</option>
+            <select class="js-example-basic-multiple w-100" name="catagory[]" multiple="multiple">
+                @foreach($cat as $c)
+                    <option value="{{$c->catname}}">{{$c->catname}}</option>
+                @endforeach
         </select>
       </div>
 
-    <input type="hidden" name="sellerid" value="{{ Auth::id() }}">
+    <input type="hidden" name="sellerid" value="{{Auth::user()->id}}">
 
 
 

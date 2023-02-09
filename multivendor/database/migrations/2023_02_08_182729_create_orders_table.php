@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('cusid');
             $table->string('productid');
+            $table->string('shopid');
             $table->string('oqun');
             $table->string('oprice');
             $table->string('payment');

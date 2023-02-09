@@ -6,9 +6,7 @@ use App\Http\Controllers\ShopListingsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\OrderController;
-
-
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +20,7 @@ use App\Http\Controllers\OrderController;
 */
 
 Route::get('/', function () {
-    return view('seller.index');
+    return view('welcome');
 });
 
 Route::get('/sellerdashboard', function () {
@@ -35,7 +33,13 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $role = Auth::user()->roleid;
+        if($role == 2){
+            return redirect()->route('seller.index');
+        }else{
+            return view('dashboard');
+        }
+
     })->name('dashboard');
 });
 
@@ -44,7 +48,7 @@ Route::resource('seller', SellerController::class);
 Route::resource('shop', ShopController::class);
 Route::resource('shopListings', ShopListingsController::class);
 Route::resource('product', ProductController::class);
-// Route::get('/viewproduct', [ProductController::class, 'index']);
-// Route::get('/addproduct', [ProductController::class, 'create']);
-// Route::get('/vieworders', [OrderController::class, 'index']);
-// Route::get('/orderdetail', [OrderController::class, 'create']);
+Route::get('/viewproduct', [ProductController::class, 'index']);
+Route::get('/addproduct', [ProductController::class, 'create']);
+Route::get('/vieworders', [OrderController::class, 'index']);
+Route::get('/orderdetail', [OrderController::class, 'create']);
