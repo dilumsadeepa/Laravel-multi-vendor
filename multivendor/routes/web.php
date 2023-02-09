@@ -37,6 +37,7 @@ Route::middleware([
 
 Route::resource('seller', SellerController::class);
 Route::resource('shop', ShopController::class);
+// Route::resource('shop', ShopListingsController::class);
 Route::resource('product', ProductController::class);
 Route::get('/viewproduct', [ProductController::class, 'index']);
 Route::get('/addproduct', [ProductController::class, 'create']);
