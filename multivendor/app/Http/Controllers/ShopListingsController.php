@@ -15,7 +15,7 @@ class ShopListingsController extends Controller
      */
     public function index()
     {
-        return view('seller.shopListings');
+        return view('seller.shoplistings');
     }
 
     /**

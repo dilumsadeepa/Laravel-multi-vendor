@@ -63,12 +63,12 @@ $time = Carbon::now()->format('H:i:s');
             </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown">
+             {{-- <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                 <i class="icon-bell mx-0"></i>
                 <span class="count"></span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                 <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
@@ -110,10 +110,10 @@ $time = Carbon::now()->format('H:i:s');
                   </div>
                 </a>
               </div>
-            </li>
+            </li> --}}
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="{{ asset('images/faces/face28.jpg') }}" alt="profile"/>
+                <img src="{{ asset('images/faces/face8.jpg') }}" alt="profile"/>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item">
@@ -181,6 +181,7 @@ $time = Carbon::now()->format('H:i:s');
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('shop.create')}}">Create Shop</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('shopListings.index')}}">View Shops</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('shop.index')}}">View Shop</a></li>
               </ul>
             </div>
