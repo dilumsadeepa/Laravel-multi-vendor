@@ -15,6 +15,7 @@ $time = Carbon::now()->format('H:i:s');
   <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
@@ -182,7 +183,7 @@ $time = Carbon::now()->format('H:i:s');
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('shop.create')}}">Create Shop</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('shopListings.index')}}">View Shops</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('shop.index')}}">View Shop</a></li>
+                {{-- <li class="nav-item"> <a class="nav-link" href="{{route('shop.index')}}">View Shop</a></li> --}}
               </ul>
             </div>
           </li>
