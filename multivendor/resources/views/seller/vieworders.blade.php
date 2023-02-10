@@ -49,7 +49,7 @@
                     {{$order->payment}}
                     </td>
                     <td>
-                      May 15, 2023
+                      May 15, 20
                     </td>
                     <td>
                         <button href="{{url('orderdetail')}}" type="button"  class="btn btn-success btn-icon-text">
