@@ -183,7 +183,7 @@
         <b>No of Sell Items</b> <a class="float-right">{{$sell}}</a>
         </li>
         </ul>
-        <a href="{{route('shop.create')}}" class="btn btn-primary btn-block"><b>Create New Shop</b></a>
+        <a href="{{route('product.index')}}" class="btn btn-primary btn-block"><b>View Product</b></a>
         </div>
 
         </div>
@@ -351,9 +351,9 @@
                       </span>
                     </div>
 
-                    <div class="form-group mt-3">
+                    <div class="form-group mt-3" style="min-width: 100%">
                         <label>Shop Category</label>
-                        <select class="js-example-basic-multiple" width="100%" multiple="multiple">
+                        <select class="js-example-basic-multiple form-control" multiple="multiple">
                             @foreach($cat as $ca)
                                 <option value="{{$ca}}">{{$ca}}</option>
                             @endforeach
