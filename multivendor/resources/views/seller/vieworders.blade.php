@@ -33,11 +33,12 @@
                 </thead>
                 <tbody>
                   <tr>
+                  @foreach($orders as $order)
                     <td class="py-1">
                       <img src="../../images/faces/face1.jpg" alt="image"/>
                     </td>
                     <td>
-                      Herman Beck
+                      {{$order->firstname}}
                     </td>
                     <td>
                       <div class="progress">
@@ -45,7 +46,7 @@
                       </div>
                     </td>
                     <td>
-                      $ 77.99
+                    {{$order->payment}}
                     </td>
                     <td>
                       May 15, 2023
@@ -57,6 +58,7 @@
                           </button>
                     </td>
                   </tr>
+                  @endforeach
                   <tr>
                     <td class="py-1">
                       <img src="../../images/faces/face2.jpg" alt="image"/>
