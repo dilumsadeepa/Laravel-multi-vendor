@@ -17,9 +17,10 @@
                         <div class="card">
                             <img class="card-img-top" src="{{asset('uploads/'.$p->pimg)}}" alt="Card image">
                             <div class="card-body">
-                            <h4 class="card-title">John Doe</h4>
-                            <p class="card-text">Some example text.</p>
-                            <a href="#" class="btn btn-primary">See Profile</a>
+                            <h4 class="card-title">{{$p->pname}}</h4>
+                            <p class="card-text">{{$p->title}}</p>
+                            <p class="card-text">@php echo($p->pshort) @endphp</p>
+                            <a href="{{route('product.show', $p->id)}}" class="btn btn-primary">See Product</a>
                             </div>
                         </div>
                     </div>

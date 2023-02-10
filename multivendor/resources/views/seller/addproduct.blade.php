@@ -93,7 +93,7 @@
                             <div class="col-sm-5">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" id="membershipRadios2" value="hysical" name="dop">
+                                  <input type="radio" class="form-check-input" id="membershipRadios2" value="physical" name="dop">
                                   Physical product
                                 </label>
                               </div>
@@ -113,7 +113,7 @@
                                     <div class="form-group">
 
 
-                                        <input type="file" name="pimg" class="file-upload-default">
+                                        <input type="file" name="pimg" class="file-upload-default" onchange="previewImage(event);">
                                         <div class="input-group col-xs-12">
                                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                           <span class="input-group-append">
@@ -126,8 +126,10 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-
-                          </div>
+                            <div class="preview">
+                                <img id="preview-selected-image" class="img-fluid" />
+                            </div>
+                        </div>
 
                       <div class="row">
                         <div class="col-md-12">
@@ -157,6 +159,34 @@
               </div>
 
             </form>
+
+
+    <style>
+        .preview{
+            width: 350px;
+        }
+    </style>
+
+
+    <script>
+        const previewImage = (event) => {
+
+            const imageFiles = event.target.files;
+
+            const imageFilesLength = imageFiles.length;
+
+            if (imageFilesLength > 0) {
+
+                const imageSrc = URL.createObjectURL(imageFiles[0]);
+
+                const imagePreviewElement = document.querySelector("#preview-selected-image");
+
+                imagePreviewElement.src = imageSrc;
+
+                imagePreviewElement.style.display = "block";
+            }
+        };
+    </script>
 
 
 </x-dashboard>
