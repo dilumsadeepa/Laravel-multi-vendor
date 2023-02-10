@@ -1,13 +1,6 @@
 <x-dashboard>
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-    tinymce.init({
-        selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
-        plugins: 'code table lists',
-        toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
-    });
-    </script>
+
 
         @if(session('status'))
             <div class="alert alert-success mb-1 mt-1">
@@ -72,7 +65,7 @@
                             <div class="col-sm-9">
                               <select class="form-control" name="pcatid">
                                 @foreach($catagory as $c)
-                                    <option value="{{$c->id}}">{{$c->catname}}</option>
+                                    <option value="{{$c->catname}}">{{$c->catname}}</option>
                                 @endforeach
 
                               </select>
@@ -113,7 +106,7 @@
                                     <div class="form-group">
 
 
-                                        <input type="file" name="pimg" class="file-upload-default" onchange="previewImage(event);">
+                                        <input type="file" name="pimg[]" multiple class="file-upload-default" onchange="previewImage(event);">
                                         <div class="input-group col-xs-12">
                                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                           <span class="input-group-append">

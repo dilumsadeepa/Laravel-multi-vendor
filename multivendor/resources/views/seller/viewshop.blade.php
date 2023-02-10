@@ -227,6 +227,17 @@
         </ul>
         </div>
         <div class="card-body">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
         <div class="tab-content">
         <div class="active tab-pane" id="activity">
 
@@ -275,20 +286,15 @@
                       <div class="line"></div>
 
                       <div class="col-md-12">
-                        <p>{{$shop->shopdis}}</p>
+                        <p>@php echo($shop->shopdis) @endphp</p>
                       </div>
 
                     <div class="line"></div>
                     <h2 class="my-3">Recent Products</h2>
                     <div class="row d-flex justify-content-between px-3">
-                        <div class="prod-bg text-center py-1"><img class="prod-pic" src="{{ URL::asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSnirWg1_QaKVUwkkeLwSt6gQap7n9Ylxayg&usqp=CAU') }}"></div>
-                        <div class="prod-bg text-center py-1"><img class="prod-pic" src="https://cdn.shopify.com/s/files/1/0428/8063/0937/files/awards_b7b68527-48b8-43b2-8a75-945922f8c149.jpg?v=1613778469"></div>
-                        <div class="prod-bg text-center py-1"><img class="prod-pic fat-img" src="https://cdn.shopify.com/s/files/1/0428/8063/0937/files/awards_b7b68527-48b8-43b2-8a75-945922f8c149.jpg?v=1613778469"></div>
-                        <div class="prod-bg text-center py-1"><img class="prod-pic" src="https://cdn.shopify.com/s/files/1/0428/8063/0937/files/awards_b7b68527-48b8-43b2-8a75-945922f8c149.jpg?v=1613778469"></div>
-                        <div class="more text-center pt-3">
-                            <h1 class="mb-0 dk-none dk-sm-block"><strong>+6</strong></h1>
-                            <h5>ITEMS</h5>
-                        </div>
+                        @foreach($products as $p)
+                            <div class="prod-bg text-center py-1"><img class="prod-pic" src="{{asset('uploads/'.$p->pimg)}}"></div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -309,19 +315,23 @@
 
         <div class="tab-pane" id="settings">
 
-            <form class="forms-sample" action="{{route('shop.update',$shop->id)}}" enctype="multipart/form-data">
+
+            <form class="forms-sample" action="{{route('shop.update',$shop->id)}}" enctype="multipart/form-data" method="post">
+                @csrf
+                @method('PUT')
                 <div class="form-group">
                   <label for="exampleInputName1">Shop Name</label>
-                  <input type="text" class="form-control" id="exampleInputName1" value="{{$shop->title}}" placeholder="title">
+                  <input type="text" class="form-control" name="title" id="exampleInputName1" value="{{$shop->title}}" placeholder="title">
                 </div>
                 <div class="form-group">
                   <label for="shopDescription">Shop Description</label>
-                  <textarea class="form-control" id="shopDescription" rows="4" name="shopdis">{{$shop->shopdis}}</textarea>
+                  <textarea class="form-control" id="myeditorinstance" rows="4" name="shopdis">{{$shop->shopdis}}</textarea>
                 </div>
                   <div class="form-group">
                     <label>Profile Photo</label>
+                    <img src="{{asset('uploads/'.$shop->shopprofile)}}" id="preview-selected-image4" alt="" class="img-fluid">
                     <input type="hidden" name="shopprofile" value="{{$shop->shopprofile}}">
-                    <input type="file" name="imgpro" class="file-upload-default">
+                    <input type="file" name="imgpro" class="file-upload-default" onchange="previewImage4(event);">
                     <div class="input-group col-xs-12">
                       <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Profile Photo">
                       <span class="input-group-append">
@@ -341,9 +351,10 @@
                     </div>
                   </div> --}}
                   <div class="form-group">
-                    <label>File upload</label>
+                    <label>Banner</label>
+                    <img src="{{asset('uploads/'.$shop->banner)}}" id="preview-selected-image3" alt="" class="img-fluid">
                     <input type="hidden" name="banner" value="{{$shop->banner}}">
-                    <input type="file" name="imgban" class="file-upload-default">
+                    <input type="file" name="imgban" class="file-upload-default" onchange="previewImage3(event);">
                     <div class="input-group col-xs-12">
                       <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                       <span class="input-group-append">
@@ -352,20 +363,26 @@
                     </div>
 
                     <div class="form-group mt-3" style="min-width: 100%">
-                        <label>Shop Category</label>
-                        <select class="js-example-basic-multiple form-control" multiple="multiple">
-                            @foreach($cat as $ca)
+                        <label>Shop Category (if you change the catagory reselect the catagories)</label>
+                        <br>
+                        <input type="hidden" name="catlist" value="{{$shop->catagory}}">
+                        <select class="js-example-basic-multiple form-control" name="catagory" multiple="multiple">
+                            <option value="">Select</option>
+                            @php
+                                $cata = explode(",", $shop->catagory);
+                            @endphp
+                            @foreach($cata as $ca)
                                 <option value="{{$ca}}">{{$ca}}</option>
                             @endforeach
-                            <hr>
+                            <option value="">Sectioon Break</option>
                             @foreach($catagories as $c)
-                                <option value="{{$c->catname}}"></option>
+                                <option value="{{$c->catname}}">{{$c->catname}}</option>
                             @endforeach
 
                     </select>
                   </div>
 
-                <input type="hidden" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="sellerid" value="{{ Auth::user()->id }}">
 
 
 
@@ -389,6 +406,45 @@
 
         </div>
         </section>
+
+
+        <script>
+            const previewImage3 = (event) => {
+
+                const imageFiles = event.target.files;
+
+                const imageFilesLength = imageFiles.length;
+
+                if (imageFilesLength > 0) {
+
+                    const imageSrc = URL.createObjectURL(imageFiles[0]);
+
+                    const imagePreviewElement = document.querySelector("#preview-selected-image3");
+
+                    imagePreviewElement.src = imageSrc;
+
+                    imagePreviewElement.style.display = "block";
+                }
+            };
+
+            const previewImage4 = (event) => {
+
+            const imageFiles = event.target.files;
+
+            const imageFilesLength = imageFiles.length;
+
+            if (imageFilesLength > 0) {
+
+                const imageSrc = URL.createObjectURL(imageFiles[0]);
+
+                const imagePreviewElement = document.querySelector("#preview-selected-image4");
+
+                imagePreviewElement.src = imageSrc;
+
+                imagePreviewElement.style.display = "block";
+            }
+        };
+        </script>
 
 
 </x-dashboard>

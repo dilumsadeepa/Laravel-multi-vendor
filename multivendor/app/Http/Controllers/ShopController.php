@@ -82,6 +82,11 @@ class ShopController extends Controller
     {
         $orders = DB::select('select * from orders where shopid = ?', [$shop->id]);
         $catagories = DB::select('select * from catagories');
+        $products = DB::table('products')
+                ->where('pshopid', $shop->id)
+                ->orderByRaw('updated_at - created_at DESC')
+                ->limit(5)
+                ->get();
         $allorder = 0;
         $pending = 0;
         $sell = 0;
@@ -92,7 +97,7 @@ class ShopController extends Controller
             }
             $sell = $o->oqun + $sell;
         }
-        return view('seller.viewshop', compact('shop','allorder','pending','sell','catagories'));
+        return view('seller.viewshop', compact('shop','allorder','pending','sell','catagories', 'products'));
     }
 
     /**
@@ -115,7 +120,49 @@ class ShopController extends Controller
      */
     public function update(UpdateShopRequest $request, Shop $shop)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'shopdis' => 'required',
+            'shopprofile' => 'required',
+            'banner' =>  'required',
+            'sellerid' => 'required',
+            'catlist' => 'required',
+            'imgpro' => 'image|mimes:jpeg,png,jpg,gif,svg|max:504800',
+            'imgban' => 'image|mimes:jpeg,png,jpg,gif,svg|max:504800',
+        ]);
+
+        $profile = $request->shopprofile;
+        $bannerimg = $request->banner;
+        $cat = $request->catlist;
+
+        if($request->catagory){
+            $cat = implode(",", $request->catagory);
+        }
+
+        if($request->imgpro){
+            $profileimg = time().'.'.$request->imgpro->extension();
+
+            $request->imgpro->move(public_path('uploads'), $profileimg);
+
+            $profile = $profileimg;
+        }
+        if($request->imgban){
+            $banner = time().'banner.'.$request->imgban->extension();
+
+            $request->imgban->move(public_path('uploads'), $banner);
+            $bannerimg = $banner;
+        }
+
+        $affected = DB::update(
+            'update shops set title = ?,banner=?,shopprofile=?,shopdis=?,sellerid=?,catagory=? where id = ?',
+            [$request->title,$bannerimg,$profile,$request->shopdis,$request->sellerid,$cat,$shop->id]
+        );
+
+        return redirect()->route('shop.show',$shop->id)->with('success','Shop updated successfully.');;
+
+
+
+
     }
 
     /**

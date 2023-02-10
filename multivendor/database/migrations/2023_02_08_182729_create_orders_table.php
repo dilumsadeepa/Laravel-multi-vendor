@@ -22,6 +22,12 @@ return new class extends Migration
             $table->string('oprice');
             $table->string('payment');
             $table->string('deliver');
+            $table->string('streetaddress');
+            $table->string('streetaddress2');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zipcode');
+            $table->integer('phone');
             $table->timestamps();
         });
     }
