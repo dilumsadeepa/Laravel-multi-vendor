@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/single', function () {
+    return view('seller.singleproduct');
+});
+
 Route::get('/sellerdashboard', function () {
     return view('seller.createshop');
 });

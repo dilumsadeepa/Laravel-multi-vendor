@@ -20,6 +20,7 @@ $time = Carbon::now()->format('H:i:s');
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/owl-carousel-2/owl.carousel.min.css') }}"> --}}
   <link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
@@ -31,6 +32,7 @@ $time = Carbon::now()->format('H:i:s');
   {{-- Form external css for dashboards --}}
   <link rel="stylesheet" href="{{ asset('vendors/select2/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
+
 
 
 {{-- End of Form external css for dashboards --}}
@@ -114,17 +116,39 @@ $time = Carbon::now()->format('H:i:s');
             </li> --}}
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                {{-- @if (Auth::user()->profile_photo_url) --}}
+                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                        <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                            <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        </button>
+                    @else
+                        <span class="inline-flex rounded-md">
+                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
+                                {{ Auth::user()->firstname }}
+
+                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                        </span>
+                    @endif
+                {{-- @else
                 <img src="{{ asset('images/faces/face8.jpg') }}" alt="profile"/>
+                @endif --}}
+
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
+                <a class="dropdown-item" href="{{ route('profile.show') }}">
                   <i class="ti-settings text-primary"></i>
                   Settings
                 </a>
-                <a class="dropdown-item">
+                <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="dropdown-item" type="submit">
                   <i class="ti-power-off text-primary"></i>
                   Logout
-                </a>
+                </button>
+                </form>
               </div>
             </li>
 
@@ -317,7 +341,6 @@ $time = Carbon::now()->format('H:i:s');
   <script src="{{ asset('js/file-upload.js') }}"></script>
   <script src="{{ asset('js/typeahead.js') }}"></script>
   <script src="{{ asset('js/select2.js') }}"></script>
-
 
 
 
