@@ -41,14 +41,17 @@ Route::middleware([
         }
 
     })->name('dashboard');
+
+    Route::resource('seller', SellerController::class);
+    Route::resource('shop', ShopController::class);
+    Route::resource('shopListings', ShopListingsController::class);
+    Route::resource('product', ProductController::class);
+    Route::get('/viewproduct', [ProductController::class, 'index']);
+    Route::get('/addproduct', [ProductController::class, 'create']);
+    Route::get('/vieworders', [OrderController::class, 'index']);
+    Route::get('/orderdetail', [OrderController::class, 'create']);
+
 });
 
 
-Route::resource('seller', SellerController::class);
-Route::resource('shop', ShopController::class);
-Route::resource('shopListings', ShopListingsController::class);
-Route::resource('product', ProductController::class);
-Route::get('/viewproduct', [ProductController::class, 'index']);
-Route::get('/addproduct', [ProductController::class, 'create']);
-Route::get('/vieworders', [OrderController::class, 'index']);
-Route::get('/orderdetail', [OrderController::class, 'create']);
+

@@ -51,7 +51,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'pname' => 'required',
-            'pimg' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:504800',
+            'pimg' => 'required',
+            'pimg.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048000',
             'pprice' => 'required',
             'pdis' => 'required',
             'pshort' => 'required',
@@ -61,9 +62,20 @@ class ProductController extends Controller
             'pqun' => 'required',
         ]);
 
-        $imgname = time().'product.'.$request->pimg->extension();
+        $images = [];
+        if ($request->pimg){
+            foreach($request->pimg as $key => $image)
+            {
+                $imageName = time().rand(1,99).'.'.$image->extension();
+                $image->move(public_path('uploads'), $imageName);
 
-        $request->pimg->move(public_path('uploads'), $imgname);
+                $images[] = $imageName;
+            }
+        }
+
+        $imgname = implode(",", $images);
+
+
 
 
         $product = new Product();

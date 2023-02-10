@@ -14,12 +14,12 @@
             <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
-            <h1>All Shops</h1>
+            <h1>All Products</h1>
             </div>
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">All Shops</li>
+            <li class="breadcrumb-item active">All Products</li>
             </ol>
             </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="container py-5">
                   <div class="row justify-content-center mb-3">
 
-                    @foreach ($shops as $s)
+                    @foreach ($products as $p)
 
                         <div class="col-md-12 col-xl-10">
                         <div class="card shadow-0 border rounded-3">
@@ -40,8 +40,10 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                                    <img src="{{ asset('uploads/'.$s->shopprofile) }}"
-                                    class="w-100" />
+                                    @php
+                                        $images = explode(",", $p->pimg)
+                                    @endphp
+                                    <img src="{{ asset('uploads/'.$images[0]) }}" class="w-100" />
                                     <a href="#!">
                                     <div class="hover-overlay">
                                         <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
@@ -50,7 +52,7 @@
                                 </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                <h4>{{$s->title}}</h4>
+                                <h4>{{$p->pname}}</h4>
                                 <div class="d-flex flex-row">
                                     <div class="mb-1 me-2" style="color:#FFD700;">
                                     <i class="fa-solid fa-star"></i>
@@ -61,20 +63,16 @@
                                     <span>(6)</span>
                                 </div>
 
-                                @php
-                                    $cat = explode(",",$s->catagory)
-                                @endphp
-
                                 <div class="mt-1 mb-0 text-muted small">
-                                    @foreach($cat as $c)
+
                                         <span class="text-primary"> • </span>
-                                        <span>{{$c}}</span>
-                                    @endforeach
+                                        <span>{{$p->pcatid}}</span>
+
                                 </div>
 
                                 <p class="text-truncate mb-4 mb-md-0">
                                     @php
-                                        echo $s->shopdis
+                                        echo $p->pshort
                                     @endphp
                                 </p>
                                 </div>
@@ -84,7 +82,7 @@
                                 </div>
                                 <h6 class="text-success">Pending Orders</h6> --}}
                                 <div class="d-flex flex-column mt-4">
-                                    <a class="btn btn-primary btn-sm" href="{{route('shop.show', $s->id)}}">Details</a>
+                                    <a class="btn btn-primary btn-sm" href="{{route('product.show', $p->id)}}">Details</a>
                                     <a class="btn btn-outline-primary btn-sm mt-2" href="{{route('shop.index')}}">
                                     Update Shop
                                     </a>
