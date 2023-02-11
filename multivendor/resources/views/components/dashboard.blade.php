@@ -153,7 +153,7 @@ $time = Carbon::now()->format('H:i:s');
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="{{ route('profile.show') }}">
                   <i class="ti-settings text-primary"></i>
-                  Settings
+                  Profile
                 </a>
                 <form method="POST" action="{{ route('logout') }}">
                 @csrf

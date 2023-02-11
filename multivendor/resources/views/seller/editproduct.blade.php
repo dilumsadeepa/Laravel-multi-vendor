@@ -8,12 +8,13 @@
         </div>
     @endif
 
-    <form action="{{route('product.update')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('product.update', $product->id)}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Add product</h4>
+                <h4 class="card-title">Edit product</h4>
                 <form class="form-sample">
                   <p class="card-description">
                     Product info
@@ -23,7 +24,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Product Title</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="pname">
+                          <input type="text" class="form-control" value="{{$product->pname}}" name="pname">
                         </div>
                       </div>
                     </div>
@@ -31,7 +32,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Product Price</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="pprice">
+                          <input type="text" class="form-control" value="{{$product->pprice}}" name="pprice">
                         </div>
                       </div>
                     </div>
@@ -42,6 +43,11 @@
                         <label class="col-sm-3 col-form-label">Select Shop</label>
                         <div class="col-sm-9">
                           <select class="form-control" name="pshopid">
+                            @foreach($shops as $sh)
+                                @if($product->pshopid == $sh->id)
+                                    <option value="{{$sh->id}}">{{$sh->title}}</option>
+                                @endif
+                            @endforeach
                             @foreach($shops as $s)
                                 <option value="{{$s->id}}">{{$s->title}}</option>
                             @endforeach
@@ -53,7 +59,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Quentity</label>
                         <div class="col-sm-9">
-                          <input type="number" class="form-control" placeholder="" name="pqun"/>
+                          <input type="number" class="form-control" placeholder="" value="{{$product->pqun}}" name="pqun"/>
                         </div>
                       </div>
                     </div>
@@ -64,6 +70,7 @@
                         <label class="col-sm-3 col-form-label">Category</label>
                         <div class="col-sm-9">
                           <select class="form-control" name="pcatid">
+                            <option value="{{$product->pcatid}}">{{$product->pcatid}}</option>
                             @foreach($catagory as $c)
                                 <option value="{{$c->catname}}">{{$c->catname}}</option>
                             @endforeach
@@ -78,16 +85,26 @@
                         <div class="col-sm-4">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="radio" class="form-check-input" id="membershipRadios1" value="digital" name="dop" checked>
-                              Digital
+                                @if($product->dop == "digital")
+                                    <input type="radio" class="form-check-input" id="membershipRadios1" value="digital" name="dop" checked>
+                                    Digital
+                                @else
+                                    <input type="radio" class="form-check-input" id="membershipRadios1" value="digital" name="dop">
+                                    Digital
+                                @endif
                             </label>
                           </div>
                         </div>
                         <div class="col-sm-5">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="radio" class="form-check-input" id="membershipRadios2" value="physical" name="dop">
-                              Physical product
+                                @if($product->dop == "physical")
+                                    <input type="radio" class="form-check-input" id="membershipRadios2" value="physical" name="dop" checked>
+                                    Physical product
+                                @else
+                                    <input type="radio" class="form-check-input" id="membershipRadios2" value="physical" name="dop">
+                                    Physical product
+                                @endif
                             </label>
                           </div>
                         </div>
@@ -105,14 +122,15 @@
                             <div class="form-group">
                                 <div class="form-group">
 
+                                    <input type="hidden" id="pimg" name="pimg" value="{{$product->pimg}}">
 
-                                    <input type="file" name="pimg[]" multiple class="file-upload-default" onchange="previewImage(event);">
+                                    {{-- <input type="file" name="pimg[]" multiple class="file-upload-default" onchange="previewImage(event);">
                                     <div class="input-group col-xs-12">
                                       <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                       <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                                       </span>
-                                    </div>
+                                    </div> --}}
                                   </div>
                             </div>
                         </div>
@@ -123,13 +141,16 @@
                             <img id="preview-selected-image" class="img-fluid" />
                         </div>
                     </div>
+                    <div class="row" id="row">
+
+                    </div>
 
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Discription</label>
                         <div class="col-sm-9">
-                            <textarea id="myeditorinstance" name="pdis">Hello, World!</textarea>
+                            <textarea id="myeditorinstance" name="pdis">{{$product->pdis}}</textarea>
                         </div>
                       </div>
                     </div>
@@ -137,7 +158,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Short Discription</label>
                             <div class="col-sm-9">
-                                <textarea id="myeditorinstance" name="pshort">Hello, World!</textarea>
+                                <textarea id="myeditorinstance" name="pshort">{{$product->pshort}}</textarea>
                             </div>
                           </div>
                     </div>
@@ -162,6 +183,7 @@
 
 
 <script>
+
     const previewImage = (event) => {
 
         const imageFiles = event.target.files;

@@ -124,7 +124,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $shops = DB::select('select * from shops where sellerid = ?', [Auth::user()->id]);
+        $catagory = DB::select('select * from catagories');
+        return view('seller.editproduct', compact('product','shops','catagory'));
     }
 
     /**
@@ -136,7 +138,22 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $request->validate([
+            'pname' => 'required',
+            'pimg' => 'required',
+            'pprice' => 'required',
+            'pdis' => 'required',
+            'pshort' => 'required',
+            'pshopid' => 'required',
+            'pcatid' => 'required',
+            'dop' => 'required',
+            'pqun' => 'required',
+        ]);
+
+        $product->update($request->all());
+
+        return redirect()->route('product.index')
+                        ->with('success','Product updated successfully');
     }
 
     /**

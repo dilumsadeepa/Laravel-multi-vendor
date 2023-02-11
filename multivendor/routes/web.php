@@ -24,17 +24,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/single', function () {
-    return view('seller.singleproduct');
-});
-
-Route::get('/test', function () {
-    return view('seller.test');
-});
-
-Route::get('/sellerdashboard', function () {
-    return view('seller.createshop');
-});
 
 Route::middleware([
     'auth:sanctum',
