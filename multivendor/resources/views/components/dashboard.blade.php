@@ -265,12 +265,20 @@ $time = Carbon::now()->format('H:i:s');
             </div>
           </li>
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="pages/documentation/documentation.html">
               <i class="icon-paper menu-icon"></i>
+               <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="dropdown-item" type="submit">
+                  <i class="ti-power-off text-primary"></i>
+                  Logout
+                </button>
+                </form>
               <span class="menu-title">Log Out</span>
             </a>
-          </li>
+          </li> --}}
+
         </ul>
       </nav>
 
