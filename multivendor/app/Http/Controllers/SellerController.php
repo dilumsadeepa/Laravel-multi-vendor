@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSellerRequest;
 use App\Http\Requests\UpdateSellerRequest;
 use App\Models\Seller;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class SellerController extends Controller
 {
@@ -15,7 +17,28 @@ class SellerController extends Controller
      */
     public function index()
     {
-        return view('seller.index');
+        //Get the current date
+        $today = Carbon::today();
+        //Get current date orders count
+        $TodayOrderCount = DB::table('orders')
+                     ->whereDate('created_at', $today)
+                     ->count();
+        
+        //Get the current month
+        $firstDayOfMonth = Carbon::create($today->year, $today->month, 1);
+        $lastDayOfMonth = Carbon::create($today->year, $today->month, $today->daysInMonth);
+
+        //Get the count of orders current month
+        $MonthOrderCount = DB::table('orders')
+            ->whereBetween('created_at', [$firstDayOfMonth, $lastDayOfMonth])
+            ->count();
+
+        //Get all orders count    
+        $AllOrderCount = DB::table('orders')->count();
+
+        //Return view
+        return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount]);
+
     }
 
     /**

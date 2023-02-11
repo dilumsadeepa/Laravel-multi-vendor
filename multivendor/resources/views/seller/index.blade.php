@@ -45,7 +45,7 @@ $time = Carbon::now()->format('H:i:s');
                   <div class="card card-tale">
                     <div class="card-body">
                       <p class="mb-4">Today’s Orders</p>
-                      <p class="fs-30 mb-2">4</p>
+                      <p class="fs-30 mb-2">{{$TodayOrderCount}}</p>
                       <p>10.00% (30 days)</p>
                     </div>
                   </div>
@@ -54,7 +54,7 @@ $time = Carbon::now()->format('H:i:s');
                   <div class="card card-dark-blue">
                     <div class="card-body">
                       <p class="mb-4">This month Orders</p>
-                      <p class="fs-30 mb-2">22</p>
+                      <p class="fs-30 mb-2">{{$MonthOrderCount}}</p>
                       <p>22.00% (30 days)</p>
                     </div>
                   </div>
@@ -65,7 +65,7 @@ $time = Carbon::now()->format('H:i:s');
                   <div class="card card-light-blue">
                     <div class="card-body">
                       <p class="mb-4">All Orders</p>
-                      <p class="fs-30 mb-2">230</p>
+                      <p class="fs-30 mb-2">{{$AllOrderCount}}</p>
                       <p>2.00% (30 days)</p>
                     </div>
                   </div>
