@@ -6,6 +6,7 @@ use App\Http\Controllers\ShopListingsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SocialShareController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -54,6 +55,7 @@ Route::middleware([
     Route::resource('shop', ShopController::class);
     Route::resource('shopListings', ShopListingsController::class);
     Route::resource('product', ProductController::class);
+    Route::get('social-share', [SocialShareController::class, 'index']);
     Route::get('/viewproduct', [ProductController::class, 'index']);
     Route::get('/addproduct', [ProductController::class, 'create']);
     Route::get('/vieworders', [OrderController::class, 'index']);

@@ -10,6 +10,9 @@ How to install
     
 4) if composer install doesn't work
     composer update && composer install
+
+Additional (Must install)
+    composer require jorenvanhocht/laravel-share
     
 5) then
 

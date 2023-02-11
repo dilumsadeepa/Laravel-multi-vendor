@@ -103,7 +103,17 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $shareButton = \Jorenvh\Share\ShareFacade::class::page(
+            'http://encode99.com.lk',
+            'Your share text comes here',
+            )
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp()
+            ->reddit();
+        return view('seller.singleproduct', compact('product','shareButton'));
     }
 
     /**
