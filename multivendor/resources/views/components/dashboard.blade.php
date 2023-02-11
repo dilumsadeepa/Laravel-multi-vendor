@@ -34,6 +34,9 @@ $time = Carbon::now()->format('H:i:s');
   <link rel="stylesheet" href="{{ asset('vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
 
 
+  {{-- swiper slider --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
 
 {{-- End of Form external css for dashboards --}}
 
@@ -248,7 +251,7 @@ $time = Carbon::now()->format('H:i:s');
               </ul>
             </div>
           </li>
-          
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
               <i class="icon-grid-2 menu-icon"></i>
@@ -354,7 +357,8 @@ $time = Carbon::now()->format('H:i:s');
   <script src="{{ asset('js/select2.js') }}"></script>
 
 
-
+{{-- swiper js --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.4/swiper-bundle.min.js" integrity="sha512-hQQhpacNvYwkN+PyMQghLPCql/6OQfWNKVUkpW0KgCB5XjqtIkxm8UYny+gTjvIfvE/CrqrKEUOLotbHBFs/0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 
