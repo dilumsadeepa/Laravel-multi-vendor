@@ -53,7 +53,7 @@ class ProductController extends Controller
             'pname' => 'required',
             'pimg' => 'required',
             'pimg.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048000',
-            'pprice' => 'required',
+            'pprice' => 'required|numeric|',
             'pdis' => 'required',
             'pshort' => 'required',
             'pshopid' => 'required',
@@ -141,7 +141,7 @@ class ProductController extends Controller
         $request->validate([
             'pname' => 'required',
             'pimg' => 'required',
-            'pprice' => 'required',
+            'pprice' => 'required|numeric',
             'pdis' => 'required',
             'pshort' => 'required',
             'pshopid' => 'required',

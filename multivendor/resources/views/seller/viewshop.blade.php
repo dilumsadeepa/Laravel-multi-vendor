@@ -67,7 +67,14 @@
             cursor: pointer;
         }
 
-        .shopjumbo {
+
+        .shop_details{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        /* .shopjumbo {
             position: absolute;
             top: 30px;
             right: 24px;
@@ -77,7 +84,7 @@
             position: absolute;
             top: 30px;
             left: 24px;
-        }
+        } */
 
         /* .megaWrapper{
     width: 100%;
@@ -87,9 +94,22 @@
 } */
 
         .banner_wrapper {
+            /* background-color: rgba(0,0,0,0.6); */
+            margin: 20px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+
+        .data_wrapper{
+            width: 300px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-content: center;
+            align-items: center;
         }
 
 
@@ -172,11 +192,11 @@
 
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
-                            <div class="text-center">
-                                <img class="profile-user-img img-fluid img-circle"
-                                    src="{{ asset('uploads/' . $shop->shopprofile) }}" alt="User profile picture">
+                            <div class="text-center" >
+                                <img class="profile-user-img img-fluid img-circle user-img fit-image"
+                                    src="{{ ($shop->shopprofile) ? asset('uploads/' . $shop->shopprofile) : asset('images/default/dp.jpeg') }}" alt="User profile picture" style="width:180px; height:180px;">
                             </div>
-                            <h3 class="profile-username text-center">{{ $shop->title }}</h3>
+                            <h3 class="profile-username text-center mt-3">{{ $shop->title }}</h3>
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
@@ -251,9 +271,9 @@
 
                                             <div class="col-md-12 grid-margin stretch-card">
                                                 <div class="card tale-bg">
-                                                    <div class="card-people mt-auto">
-                                                        <img src="{{ asset('uploads/' . $shop->banner) }}"
-                                                            style="max-height: 250px;" alt="people">
+                                                    <div class="" style="position:relative;">
+                                                        <img src="{{ $shop->banner ? asset('uploads/' . $shop->banner) : asset('images/default/dp cover.jpeg') }}"
+                                                            style="width:100%; max-height:350px;" alt="people">
                                                         <div class="">
                                                             <div class="megaWrapper">
                                                                 <div>
@@ -262,24 +282,29 @@
                                                                 <div class="ml-2">
 
                                                                     <div class=" px-3 banner_wrapper">
-                                                                        <div class="text-left">
-                                                                            <div class="image-bg mr-3">
-                                                                                <img class="user-img fit-image"
-                                                                                    src="{{ asset('uploads/' . $shop->shopprofile) }}">
+                                                                        <div class="data_wrapper">
+                                                                            <div class="text-left">
+                                                                                <div class="image-bg mr-3">
+                                                                                    <img class="user-img fit-image"
+                                                                                        src="{{ $shop->banner ? asset('uploads/' . $shop->shopprofile) : asset('images/default/dp.jpeg') }}">
+                                                                                </div>
+
                                                                             </div>
+
                                                                             <div class="">
                                                                                 <h2>{{ $shop->title }}</h2>
-                                                                                <h6>10 ITEMS - 21 SALE - 8 COMMENTS</h6>
+                                                                                <h6>10 ITEMS - 21 SALE</h6>
+                                                                                {{-- <span class="fa fa-star active"></span>
                                                                                 <span class="fa fa-star active"></span>
                                                                                 <span class="fa fa-star active"></span>
                                                                                 <span class="fa fa-star active"></span>
-                                                                                <span class="fa fa-star active"></span>
-                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span> --}}
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="btn-grad weather-info"
-                                                                            style="margin-left: 50px;">Manage Shop</div>
+
+                                                                        {{-- <div class="btn-grad weather-info"
+                                                                            style="margin-left: 50px;">Manage Shop</div> --}}
                                                                     </div>
 
                                                                 </div>
