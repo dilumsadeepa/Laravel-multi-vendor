@@ -53,7 +53,7 @@ class ProductController extends Controller
             'pname' => 'required',
             'pimg' => 'required',
             'pimg.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024000000',
-            'pprice' => 'required',
+            'pprice' => 'required|numeric',
             'pdis' => 'required',
             'pshort' => 'required',
             'pshopid' => 'required',
