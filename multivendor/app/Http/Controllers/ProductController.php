@@ -58,6 +58,7 @@ class ProductController extends Controller
             'pshort' => 'required',
             'pshopid' => 'required',
             'pcatid' => 'required',
+            'psubcat' => 'required',
             'dop' => 'required',
             'pqun' => 'required',
         ]);
@@ -87,6 +88,7 @@ class ProductController extends Controller
         $product->pshort = $request->pshort;
         $product->pshopid = $request->pshopid;
         $product->pcatid = $request->pcatid;
+        $product->psubcat = $request->psubcat;
         $product->dop = $request->dop;
         $product->pqun = $request->pqun;
 
@@ -146,6 +148,7 @@ class ProductController extends Controller
             'pshort' => 'required',
             'pshopid' => 'required',
             'pcatid' => 'required',
+            'psubcat' => 'required',
             'dop' => 'required',
             'pqun' => 'required',
         ]);

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('pdis');
             $table->string('pshort');
             $table->string('pshopid');
+            $table->string('psubcat');
             $table->string('pcatid');
             $table->string('dop');
             $table->string('pqun');
