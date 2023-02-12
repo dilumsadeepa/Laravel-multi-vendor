@@ -86,7 +86,12 @@
                                     <a class="btn btn-outline-primary btn-sm mt-2" href="{{route('product.edit', $p->id)}}">
                                     Update Item
                                     </a>
-                                    <a class="btn btn-danger btn-sm mt-2" href="#">Delete</a>
+
+                                    <form action="{{route('product.destroy',$p->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2" style="width: 180px">Delete</button>
+                                    </form>
                                 </div>
                                 </div>
                             </div>
@@ -100,6 +105,7 @@
 
                 </div>
               </section>
+
 
 
             {{-- content end --}}

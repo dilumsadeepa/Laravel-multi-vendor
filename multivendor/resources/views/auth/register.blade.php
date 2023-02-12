@@ -14,12 +14,12 @@
             <div class="step1" id="step1">
 
                 <div>
-                    <x-jet-label for="name" value="{{ __('First Name') }}" />
-                    <x-jet-input id="name" class="block mt-1 w-full" id="fname" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="first name" />
+                    <x-jet-label for="name" value="{{ __('Full Name') }}" />
+                    <x-jet-input id="name" class="block mt-1 w-full" id="fname" type="text" name="name" :value="old('firstname')" required autofocus autocomplete="first name" />
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="name" value="{{ __('Last Name') }}" />
+                    <x-jet-label for="name" value="{{ __('Surname') }}" />
                     <x-jet-input id="name" class="block mt-1 w-full" id="lname" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="last name" />
                 </div>
 
