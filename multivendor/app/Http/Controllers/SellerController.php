@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSellerRequest;
 use App\Http\Requests\UpdateSellerRequest;
 use App\Models\Seller;
+use App\Models\Shop;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -17,27 +19,42 @@ class SellerController extends Controller
      */
     public function index()
     {
-        //Get the current date
-        $today = Carbon::today();
-        //Get current date orders count
-        $TodayOrderCount = DB::table('orders')
-                     ->whereDate('created_at', $today)
-                     ->count();
-        
-        //Get the current month
-        $firstDayOfMonth = Carbon::create($today->year, $today->month, 1);
-        $lastDayOfMonth = Carbon::create($today->year, $today->month, $today->daysInMonth);
 
-        //Get the count of orders current month
-        $MonthOrderCount = DB::table('orders')
-            ->whereBetween('created_at', [$firstDayOfMonth, $lastDayOfMonth])
-            ->count();
+        $shopcount = DB::table('shops')->count();
 
-        //Get all orders count    
-        $AllOrderCount = DB::table('orders')->count();
+        if($shopcount == 0){
+            $shop = new Shop();
 
-        //Return view
-        return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount]);
+            $shop->title = Auth::user()->firstname;
+            $shop->sellerid = Auth::user()->id;
+
+            $shop->save();
+
+            return redirect()->route('seller.index');
+        }else{
+            $today = Carbon::today();
+
+            $TodayOrderCount = DB::table('orders')
+                        ->whereDate('created_at', $today)
+                        ->count();
+
+
+            $firstDayOfMonth = Carbon::create($today->year, $today->month, 1);
+            $lastDayOfMonth = Carbon::create($today->year, $today->month, $today->daysInMonth);
+
+
+            $MonthOrderCount = DB::table('orders')
+                ->whereBetween('created_at', [$firstDayOfMonth, $lastDayOfMonth])
+                ->count();
+
+
+            $AllOrderCount = DB::table('orders')->count();
+
+
+            return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount]);
+        }
+
+
 
     }
 

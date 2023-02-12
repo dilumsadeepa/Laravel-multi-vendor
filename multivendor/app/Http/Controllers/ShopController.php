@@ -67,35 +67,15 @@ class ShopController extends Controller
      */
     public function store(StoreShopRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'shopdis' => 'required',
-            'shopprofile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:504800',
-            'banner' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:504800',
-            'sellerid' => 'required',
-            'catagory' => 'required',
-        ]);
-
-        $banner = time().'banner.'.$request->banner->extension();
-
-        $request->banner->move(public_path('uploads'), $banner);
-
-        $profileimg = time().'.'.$request->shopprofile->extension();
-
-        $request->shopprofile->move(public_path('uploads'), $profileimg);
 
         $shop = new Shop();
 
-        $shop->title = $request->title;
-        $shop->banner = $banner;
-        $shop->shopprofile = $profileimg;
-        $shop->shopdis = $request->shopdis;
-        $shop->sellerid = $request->sellerid;
-        $shop->catagory = implode(",", $request->catagory);
+        $shop->title = Auth::user()->firstname;
+        $shop->sellerid = Auth::user()->id;
 
         $shop->save();
 
-        return redirect()->route('shopListings.index');
+        return redirect()->route('seller.index');
 
 
 

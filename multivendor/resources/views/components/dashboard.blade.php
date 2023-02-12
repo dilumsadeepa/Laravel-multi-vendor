@@ -211,18 +211,10 @@ $time = Carbon::now()->format('H:i:s');
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="icon-layout menu-icon"></i>
+            <a class="nav-link" href="{{route('shop.index')}}">
+              <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Shop</span>
-              <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{route('shop.create')}}">Create Shop</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('shopListings.index')}}">View Shops</a></li>
-                {{-- <li class="nav-item"> <a class="nav-link" href="{{route('shop.index')}}">View Shop</a></li> --}}
-              </ul>
-            </div>
           </li>
 
           <li class="nav-item">
