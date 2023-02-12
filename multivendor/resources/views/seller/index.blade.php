@@ -71,7 +71,7 @@
                <div class="card card-light-danger">
                   <div class="card-body">
                      <p class="mb-4">Toatl Revenue</p>
-                     <p class="fs-30 mb-2">EUR 2300</p>
+                     <p class="fs-30 mb-2">EUR {{$revenuetotal}}</p>
                      <p>0.22% (30 days)</p>
                   </div>
                </div>

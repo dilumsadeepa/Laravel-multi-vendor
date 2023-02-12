@@ -53,6 +53,12 @@ class SellerController extends Controller
             //Get all order count
             $AllOrderCount = DB::table('orders')->count();
 
+            //get toatl renue
+
+            $revenuetotal = DB::table('orders')
+            ->sum('oprice');
+
+
             //Getting data from table orders,products & users
             $orders = DB::table('orders')
             ->join('products', 'products.id', '=', 'orders.productid')
@@ -61,7 +67,7 @@ class SellerController extends Controller
             ->get();
 
             //Passing data to front end
-            return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount,'orders'=>$orders]);
+            return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount,'revenuetotal'=>$revenuetotal,'orders'=>$orders]);
         }
 
 
