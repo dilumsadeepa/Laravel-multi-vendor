@@ -61,6 +61,19 @@ class ProductController extends Controller
             'psubcat' => 'required',
             'dop' => 'required',
             'pqun' => 'required',
+        ],
+        [
+            'pname.required' => 'The Product title is required.',
+            'pimg.required' => 'The image is required and it must lower than 5048000KB',
+            'pprice.required' => 'The price is required.',
+            'ppdis.required' => 'The Discriptin is required.',
+            'pshort.required' => 'The Short discription is required.',
+            'pshopid.required' => 'The shop name is required.',
+            'pcatid.required' => 'The category is required.',
+            'psubcat.required' => 'The sub category is required.',
+            'dop.required' => 'The product is required.',
+            'pqun.required' => 'The quntity is required.',
+
         ]);
 
         $images = [];
@@ -151,6 +164,18 @@ class ProductController extends Controller
             'psubcat' => 'required',
             'dop' => 'required',
             'pqun' => 'required',
+        ],[
+            'pname.required' => 'The Product title is required.',
+            'pimg.required' => 'The image is required and it must lower than 5048000KB',
+            'pprice.required' => 'The price is required.',
+            'ppdis.required' => 'The Discriptin is required.',
+            'pshort.required' => 'The Short discription is required.',
+            'pshopid.required' => 'The shop name is required.',
+            'pcatid.required' => 'The category is required.',
+            'psubcat.required' => 'The sub category is required.',
+            'dop.required' => 'The product is required.',
+            'pqun.required' => 'The quntity is required.',
+
         ]);
 
         $product->update($request->all());
