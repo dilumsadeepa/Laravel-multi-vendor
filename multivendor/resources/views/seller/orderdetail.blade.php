@@ -14,7 +14,7 @@
                   <h5 class="my-3">User name</h5>
                   <div class="d-flex justify-content-center mb-2">
                      {{-- <button type="button" class="btn btn-primary">Follow</button> --}}
-                     <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                     {{-- <button type="button" class="btn btn-outline-primary ms-1">Message</button> --}}
                   </div>
                   <hr>
                   {{-- tracking number start --}}
