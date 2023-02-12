@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Shop;
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ShopController extends Controller
@@ -16,7 +17,35 @@ class ShopController extends Controller
      */
     public function index()
     {
-        return view('seller.viewshop');
+        $pershop = DB::table('shops')->count();
+        if ($pershop != 0) {
+            $shops = DB::select('select * from shops where sellerid = ?', [Auth::user()->id]);
+            $shopid = $shops[0]->id;
+            $orders = DB::select('select * from orders where shopid = ?', [$shopid]);
+            $catagories = DB::select('select * from catagories');
+            $products = DB::table('products')
+                    ->where('pshopid', $shopid)
+                    ->orderByRaw('updated_at - created_at DESC')
+                    ->limit(5)
+                    ->get();
+            $allorder = 0;
+            $pending = 0;
+            $sell = 0;
+            foreach($orders as $o){
+                $allorder = $allorder +1 ;
+                if($o->deliver = '0'){
+                    $pending = $pending + 1;
+                }
+                $sell = $o->oqun + $sell;
+            }
+            $shop = $shops[0];
+        }else{
+            $shop = [];
+        }
+
+
+
+        return view('seller.viewshop',compact('pershop','shop','allorder','pending','sell','catagories', 'products'));
     }
 
     /**
@@ -158,7 +187,7 @@ class ShopController extends Controller
             [$request->title,$bannerimg,$profile,$request->shopdis,$request->sellerid,$cat,$shop->id]
         );
 
-        return redirect()->route('shop.show',$shop->id)->with('success','Shop updated successfully.');;
+        return redirect()->route('shop.show',$shop->id)->with('success','Shop updated successfully.');
 
 
 
@@ -173,6 +202,9 @@ class ShopController extends Controller
      */
     public function destroy(Shop $shop)
     {
-        //
+        $deletedshop = DB::delete('delete from shops where id = ?', [$shop->id]);
+        $deletedproduct = DB::delete('delete from products where pshopid = ?', [$shop->id]);
+
+        return redirect()->route('shop.index')->with('success','Shop deleted successfully.');
     }
 }
