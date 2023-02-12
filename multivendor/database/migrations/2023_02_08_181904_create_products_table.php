@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('pname');
             $table->string('pimg');
             $table->string('pprice');
-            $table->string('pdis');
-            $table->string('pshort');
+            $table->text('pdis');
+            $table->text('pshort');
             $table->string('pshopid');
             $table->string('psubcat');
             $table->string('pcatid');
