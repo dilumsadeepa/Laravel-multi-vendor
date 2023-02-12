@@ -136,6 +136,15 @@ class ShopController extends Controller
             'imgpro' => 'image|mimes:jpeg,png,jpg,gif,svg|max:504800',
             'imgban' => 'image|mimes:jpeg,png,jpg,gif,svg|max:504800',
             'catagory' => 'required',
+        ],
+        [
+            'title.required' => 'The Shop name is required.',
+            'shopdis.required' => 'The Shop discription is required',
+            'sellerid.required' => 'The seller id is required.',
+            'imgpro.required' => 'The profile is required and it must lower than 5048000KB',
+            'imgban.required' => 'The banner is required and it must lower than 5048000KB',
+            'catagory.required' => 'The catagory is required.',
+
         ]);
 
         $profile = "";

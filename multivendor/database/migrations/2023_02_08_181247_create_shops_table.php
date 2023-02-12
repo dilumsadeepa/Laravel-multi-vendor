@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('banner')->nullable();
             $table->string('shopprofile')->nullable();
-            $table->string('shopdis')->nullable();
+            $table->text('shopdis')->nullable();
             $table->string('sellerid');
             $table->string('catagory')->nullable();
             $table->timestamps();
