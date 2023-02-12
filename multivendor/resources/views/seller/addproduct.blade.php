@@ -2,11 +2,16 @@
 
 
 
-        @if(session('status'))
-            <div class="alert alert-success mb-1 mt-1">
-                {{ session('status') }}
-            </div>
-        @endif
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
         <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
             @csrf
