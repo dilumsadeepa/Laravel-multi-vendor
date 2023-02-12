@@ -34,7 +34,7 @@
 
                     @foreach ($products as $p)
 
-                        <div class="col-md-12 col-xl-10">
+                        <div class="col-md-12 col-xl-10 mb-2">
                         <div class="card shadow-0 border rounded-3">
                             <div class="card-body">
                             <div class="row">
