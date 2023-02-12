@@ -141,6 +141,13 @@ class ShopController extends Controller
         $profile = "";
         $bannerimg = "";
 
+        if($request->banner){
+            $bannerimg = $request->banner;
+        }
+        if($request->shopprofile){
+            $profile = $request->shopprofile;
+        }
+
 
 
         if($request->imgpro){
