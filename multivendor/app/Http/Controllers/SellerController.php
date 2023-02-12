@@ -71,7 +71,6 @@ class SellerController extends Controller
         }
 
 
-
     }
 
     /**
