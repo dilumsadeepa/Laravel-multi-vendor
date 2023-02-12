@@ -1,220 +1,67 @@
 <x-dashboard>
-
-
-
-
-    <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
+   <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+         <div class="card-body">
             <h4 class="card-title">Orders</h4>
             <p class="card-description">
-              All <code>.Orders</code>
+               All <code>.Orders</code>
             </p>
             <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>
-                      User
-                    </th>
-                    <th>
-                      User name
-                    </th>
-                    <th>
-                      Status
-                    </th>
-                    <th>
-                      Amount
-                    </th>
-                    <th>
-                      Order Date
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                  @foreach($orders as $order)
-                    <td class="py-1">
-                      <img src="../../images/faces/face1.jpg" alt="image"/>
-                    </td>
-                    <td>
-                      {{$order->firstname}}
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td>
-                    {{$order->payment}}
-                    </td>
-                    <td>
-                      
-                    </td>
-                    <td>
-                        <button href="{{url('orderdetail')}}" type="button"  class="btn btn-success btn-icon-text">
-                            <i class="ti-file btn-icon-append"></i>                                                    
-                            View
-                          </button>
-                    </td>
-                  </tr>
-                  @endforeach
-                  <tr>
-                    <td class="py-1">
-                      <img src="../../images/faces/face2.jpg" alt="image"/>
-                    </td>
-                    <td>
-                      Messsy Adam
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td>
-                      $245.30
-                    </td>
-                    <td>
-                        May 15, 2023
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success btn-icon-text">
-                            <i class="ti-file btn-icon-append"></i>                                                    
-                            View
-                          </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="py-1">
-                      <img src="../../images/faces/face3.jpg" alt="image"/>
-                    </td>
-                    <td>
-                      John Richards
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td>
-                      $138.00
-                    </td>
-                    <td>
-                        May 15, 2023
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success btn-icon-text">
-                            <i class="ti-file btn-icon-append"></i>                                                    
-                            View
-                          </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="py-1">
-                      <img src="../../images/faces/face4.jpg" alt="image"/>
-                    </td>
-                    <td>
-                      Peter Meggik
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td>
-                      $ 77.99
-                    </td>
-                    <td>
-                        May 15, 2023
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success btn-icon-text">
-                            <i class="ti-file btn-icon-append"></i>                                                    
-                            View
-                          </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="py-1">
-                      <img src="../../images/faces/face5.jpg" alt="image"/>
-                    </td>
-                    <td>
-                      Edward
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td>
-                      $ 160.25
-                    </td>
-                    <td>
-                        May 15, 2023
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success btn-icon-text">
-                            <i class="ti-file btn-icon-append"></i>                                                    
-                            View
-                          </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="py-1">
-                      <img src="../../images/faces/face6.jpg" alt="image"/>
-                    </td>
-                    <td>
-                      John Doe
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td>
-                      $ 123.21
-                    </td>
-                    <td>
-                        May 15, 2023
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success btn-icon-text">
-                            <i class="ti-file btn-icon-append"></i>                                                    
-                            View
-                          </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="py-1">
-                      <img src="../../images/faces/face7.jpg" alt="image"/>
-                    </td>
-                    <td>
-                      Henry Tom
-                    </td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td>
-                      $ 150.00
-                    </td>
-                    <td>
-                        May 15, 2023
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-success btn-icon-text">
-                            <i class="ti-file btn-icon-append"></i>                                                    
-                            View
-                          </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+               <table class="table table-striped">
+                  <thead>
+                     <tr>
+                        <th>
+                           User
+                        </th>
+                        <th>
+                           User name
+                        </th>
+                        <th>
+                           Payment Status
+                        </th>
+                        <th>
+                           Amount
+                        </th>
+                        <th>
+                           Order Date
+                        </th>
+                        <th>
+                           Action
+                        </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        @foreach($orders as $order)
+                        <td class="py-1">
+                           <!-- User image is not set and can't set the image right now -->
+                           <img src="../../images/faces/face1.jpg" alt="image"/>
+                        </td>
+                        <td>
+                           {{$order->firstname}}
+                        </td>
+                        <td>
+                           {{$order->paymentstatus}}  
+                        </td>
+                        <td>
+                           <!-- Currency should be set in here -->
+                           {{number_format($order->oqun*$order->oprice, 2)}}
+                        </td>
+                        <td>
+                           {{$order->created_at}}  
+                        </td>
+                        <td>
+                           <button type="button" class="btn btn-success btn-icon-text">
+                           <i class="ti-file btn-icon-append"></i>                                                    
+                           <a href="{{route('order.show', $order->id )}}" style="text-decoration: none;">View</a>
+                           </button>
+                        </td>
+                     </tr>
+                     @endforeach
+                  </tbody>
+               </table>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
-
-
+   </div>
 </x-dashboard>

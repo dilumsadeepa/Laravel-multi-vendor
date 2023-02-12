@@ -33,7 +33,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('seller.orderdetail');
+       
     }
 
     /**
@@ -55,7 +55,16 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        //Getting data from table orders,products & users
+        $orders = DB::table('orders')
+        ->join('products', 'products.id', '=', 'orders.productid')
+        ->join('users', 'users.id', '=', 'orders.cusid')
+        ->select('orders.*','users.*','products.*')
+        ->get();
+
+        //Pass data to front end
+        return view('seller.orderdetail', compact('orders'));
+        
     }
 
     /**
