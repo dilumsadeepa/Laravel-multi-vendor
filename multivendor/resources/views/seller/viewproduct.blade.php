@@ -86,6 +86,7 @@
                                     <a class="btn btn-outline-primary btn-sm mt-2" href="{{route('product.edit', $p->id)}}">
                                     Update Item
                                     </a>
+                                    <a class="btn btn-danger btn-sm mt-2" href="#">Delete</a>
                                 </div>
                                 </div>
                             </div>

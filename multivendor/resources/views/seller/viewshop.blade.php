@@ -272,8 +272,11 @@
                                             <div class="col-md-12 grid-margin stretch-card">
                                                 <div class="card tale-bg">
                                                     <div class="" style="position:relative;">
-                                                        <img src="{{ $shop->banner ? asset('uploads/' . $shop->banner) : asset('images/default/dp cover.jpeg') }}"
-                                                            style="width:100%; max-height:350px;" alt="people">
+                                                        <div class="bannerwrap" style="background-image: url('{{ $shop->banner ? asset('uploads/' . $shop->banner) : asset('images/default/dp cover.jpeg') }}'); background-position: center center; background-repeat: no-repeat; background-size: cover; width:100%; height:350px;">
+
+                                                        </div>
+                                                        {{-- <img src="{{ $shop->banner ? asset('uploads/' . $shop->banner) : asset('images/default/dp cover.jpeg') }}"
+                                                            style="width:100%; max-height:350px;" alt="people"> --}}
                                                         <div class="">
                                                             <div class="megaWrapper">
                                                                 <div>
