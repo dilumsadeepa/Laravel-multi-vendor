@@ -72,6 +72,18 @@
                             </div>
                           </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Sub Category</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="" name="psubcat"/>
+                              </div>
+                            </div>
+                          </div>
+
+                      </div>
+                      <div class="row">
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Product</label>
