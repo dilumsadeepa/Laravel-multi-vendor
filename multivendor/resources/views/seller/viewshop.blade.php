@@ -325,7 +325,7 @@
 
                                             <div class="line"></div>
                                             <h2 class="my-3">Recent Products</h2>
-                                            <div class="row d-flex justify-content-between px-3">
+                                            <div class="row d-flex justify-content-start px-3">
                                                 @foreach ($products as $p)
                                                     <div class="prod-bg text-center py-1"><img class="prod-pic"
                                                             src="{{ asset('uploads/' . $p->pimg) }}"></div>
