@@ -327,8 +327,16 @@
                                             <h2 class="my-3">Recent Products</h2>
                                             <div class="row d-flex justify-content-start px-3">
                                                 @foreach ($products as $p)
-                                                    <div class="prod-bg text-center py-1"><img class="prod-pic"
-                                                            src="{{ asset('uploads/' . $p->pimg) }}"></div>
+                                                    @php
+                                                        $rpimg = explode(",",$p->pimg)
+                                                    @endphp
+                                                    @foreach($rpimg as $r)
+                                                        <div class="prod-bg text-center py-1 mr-2"><img class="prod-pic"
+                                                            src="{{ asset('uploads/'.$r) }}"></div>
+                                                        @php
+                                                            break;
+                                                        @endphp
+                                                    @endforeach
                                                 @endforeach
                                             </div>
                                         </div>

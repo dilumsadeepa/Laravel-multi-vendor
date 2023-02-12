@@ -34,7 +34,7 @@
 
                     @foreach ($products as $p)
 
-                        <div class="col-md-12 col-xl-10">
+                        <div class="col-md-12 col-xl-10 mb-2">
                         <div class="card shadow-0 border rounded-3">
                             <div class="card-body">
                             <div class="row">
@@ -86,7 +86,12 @@
                                     <a class="btn btn-outline-primary btn-sm mt-2" href="{{route('product.edit', $p->id)}}">
                                     Update Item
                                     </a>
-                                    <a class="btn btn-danger btn-sm mt-2" href="#">Delete</a>
+
+                                    <form action="{{route('product.destroy',$p->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2" style="width: 180px">Delete</button>
+                                    </form>
                                 </div>
                                 </div>
                             </div>
@@ -100,6 +105,7 @@
 
                 </div>
               </section>
+
 
 
             {{-- content end --}}
