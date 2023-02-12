@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('cusid');
             $table->string('productid');
             $table->string('shopid');
-            $table->string('oqun');
-            $table->string('oprice');
-            $table->string('payment');
+            $table->integer('oqun');
+            $table->decimal('oprice',8,2);
+            $table->string('paymentstatus');
             $table->string('deliver');
             $table->string('streetaddress');
             $table->string('streetaddress2');
