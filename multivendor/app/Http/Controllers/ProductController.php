@@ -52,14 +52,28 @@ class ProductController extends Controller
         $request->validate([
             'pname' => 'required',
             'pimg' => 'required',
-            'pimg.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048000',
-            'pprice' => 'required|numeric|',
+            'pimg.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024000000',
+            'pprice' => 'required',
             'pdis' => 'required',
             'pshort' => 'required',
             'pshopid' => 'required',
             'pcatid' => 'required',
+            'psubcat' => 'required',
             'dop' => 'required',
             'pqun' => 'required',
+        ],
+        [
+            'pname.required' => 'The Product title is required.',
+            'pimg.required' => 'The image is required and it must lower than 5048000KB',
+            'pprice.required' => 'The price is required.',
+            'ppdis.required' => 'The Discriptin is required.',
+            'pshort.required' => 'The Short discription is required.',
+            'pshopid.required' => 'The shop name is required.',
+            'pcatid.required' => 'The category is required.',
+            'psubcat.required' => 'The sub category is required.',
+            'dop.required' => 'The product is required.',
+            'pqun.required' => 'The quntity is required.',
+
         ]);
 
         $images = [];
@@ -87,6 +101,7 @@ class ProductController extends Controller
         $product->pshort = $request->pshort;
         $product->pshopid = $request->pshopid;
         $product->pcatid = $request->pcatid;
+        $product->psubcat = $request->psubcat;
         $product->dop = $request->dop;
         $product->pqun = $request->pqun;
 
@@ -146,8 +161,21 @@ class ProductController extends Controller
             'pshort' => 'required',
             'pshopid' => 'required',
             'pcatid' => 'required',
+            'psubcat' => 'required',
             'dop' => 'required',
             'pqun' => 'required',
+        ],[
+            'pname.required' => 'The Product title is required.',
+            'pimg.required' => 'The image is required and it must lower than 5048000KB',
+            'pprice.required' => 'The price is required.',
+            'ppdis.required' => 'The Discriptin is required.',
+            'pshort.required' => 'The Short discription is required.',
+            'pshopid.required' => 'The shop name is required.',
+            'pcatid.required' => 'The category is required.',
+            'psubcat.required' => 'The sub category is required.',
+            'dop.required' => 'The product is required.',
+            'pqun.required' => 'The quntity is required.',
+
         ]);
 
         $product->update($request->all());

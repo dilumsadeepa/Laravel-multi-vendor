@@ -131,9 +131,13 @@
             <hr>
             <p class="mb-4">@php echo($product->pdis); @endphp</p>
             <br><hr>
-            <div class="d-flex mb-3">
+            <div class="d-flex mb-1">
                 <p class="text-dark font-weight-medium mb-0 mr-3">Catagory:</p>
                 <p class="mb-4">{{$product->pcatid}}</p>
+            </div>
+            <div class="d-flex mb-1">
+                <p class="text-dark font-weight-medium mb-0 mr-3">The Sub Catagory:</p>
+                <p class="mb-4">{{$product->psubcat}}</p>
 
             </div>
             <div class="d-flex mb-4">

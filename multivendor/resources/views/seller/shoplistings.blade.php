@@ -76,7 +76,7 @@
                             <div class="d-flex flex-column mt-4">
                                 <a class="btn btn-primary btn-sm" href="{{route('shop.show', $s->id)}}">Details</a>
                                 <a class="btn btn-outline-primary btn-sm mt-2" href="{{route('shop.index')}}">
-                                Update Shop
+                                Update shop
                                 </a>
                             </div>
                             </div>

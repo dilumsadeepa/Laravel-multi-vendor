@@ -2,11 +2,16 @@
 
 
 
-        @if(session('status'))
-            <div class="alert alert-success mb-1 mt-1">
-                {{ session('status') }}
-            </div>
-        @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
         <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -51,7 +56,7 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Quentity</label>
+                            <label class="col-sm-3 col-form-label">Quantity</label>
                             <div class="col-sm-9">
                               <input type="number" class="form-control" placeholder="" name="pqun"/>
                             </div>
@@ -72,6 +77,18 @@
                             </div>
                           </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Sub Category</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="" name="psubcat"/>
+                              </div>
+                            </div>
+                          </div>
+
+                      </div>
+                      <div class="row">
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Product</label>
