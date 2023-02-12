@@ -132,21 +132,16 @@ class ShopController extends Controller
         $request->validate([
             'title' => 'required',
             'shopdis' => 'required',
-            'shopprofile' => 'required',
-            'banner' =>  'required',
             'sellerid' => 'required',
-            'catlist' => 'required',
             'imgpro' => 'image|mimes:jpeg,png,jpg,gif,svg|max:504800',
             'imgban' => 'image|mimes:jpeg,png,jpg,gif,svg|max:504800',
+            'catagory' => 'required',
         ]);
 
-        $profile = $request->shopprofile;
-        $bannerimg = $request->banner;
-        $cat = $request->catlist;
+        $profile = "";
+        $bannerimg = "";
 
-        if($request->catagory){
-            $cat = implode(",", $request->catagory);
-        }
+
 
         if($request->imgpro){
             $profileimg = time().'.'.$request->imgpro->extension();
@@ -164,10 +159,10 @@ class ShopController extends Controller
 
         $affected = DB::update(
             'update shops set title = ?,banner=?,shopprofile=?,shopdis=?,sellerid=?,catagory=? where id = ?',
-            [$request->title,$bannerimg,$profile,$request->shopdis,$request->sellerid,$cat,$shop->id]
+            [$request->title,$bannerimg,$profile,$request->shopdis,$request->sellerid,$request->catagory,$shop->id]
         );
 
-        return redirect()->route('shop.show',$shop->id)->with('success','Shop updated successfully.');
+        return redirect()->route('shop.index',$shop->id)->with('success','Shop updated successfully.');
 
 
 

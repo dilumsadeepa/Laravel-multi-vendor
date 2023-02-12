@@ -206,15 +206,9 @@
                             <hr>
                             <strong><i class="fas fa-pencil-alt mr-1"></i> Category</strong>
                             <p class="text-muted">
-                                @php
 
-                                    $cat = explode(',', $shop->catagory);
+                                    <span class="badge badge-info">{{ $shop->catagory }}</span>
 
-                                @endphp
-
-                                @foreach ($cat as $c)
-                                    <span class="badge badge-info">{{ $c }}</span>
-                                @endforeach
                             </p>
                             <hr>
 
@@ -392,16 +386,8 @@
                                                     catagories)</label>
                                                 <br>
                                                 <input type="hidden" name="catlist" value="{{ $shop->catagory }}">
-                                                <select class="js-example-basic-multiple form-control" name="catagory"
-                                                    multiple="multiple">
-                                                    <option value="">Select</option>
-                                                    @php
-                                                        $cata = explode(',', $shop->catagory);
-                                                    @endphp
-                                                    @foreach ($cata as $ca)
-                                                        <option value="{{ $ca }}">{{ $ca }}
-                                                        </option>
-                                                    @endforeach
+                                                <select class="form-control" name="catagory">
+                                                    <option value="{{$shop->catagory}}">{{$shop->catagory}}</option>
                                                     <option value="">Sectioon Break</option>
                                                     @foreach ($catagories as $c)
                                                         <option value="{{ $c->catname }}">{{ $c->catname }}
@@ -419,10 +405,7 @@
 
                                             <button type="submit" class="btn btn-primary mr-2">Submit</button>
 
-                                            <!-- Button to Open the Modal -->
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                                                Delete Shop
-                                            </button>
+
 
                                     </form>
 
