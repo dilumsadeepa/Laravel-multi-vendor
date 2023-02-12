@@ -22,6 +22,15 @@ class ShopController extends Controller
             $shops = DB::select('select * from shops where sellerid = ?', [Auth::user()->id]);
             $shopid = $shops[0]->id;
             $orders = DB::select('select * from orders where shopid = ?', [$shopid]);
+
+            $ordercount = DB::table('orders')
+           ->where('shopid', '=', $shopid)
+           ->count();
+
+            $items = DB::table('products')
+           ->where('pshopid', '=', $shopid)
+           ->count();
+
             $catagories = DB::select('select * from catagories');
             $products = DB::table('products')
                     ->where('pshopid', $shopid)
@@ -45,7 +54,7 @@ class ShopController extends Controller
 
 
 
-        return view('seller.viewshop',compact('pershop','shop','allorder','pending','sell','catagories', 'products'));
+        return view('seller.viewshop',compact('pershop','items','shop','allorder','pending','sell','catagories', 'products','ordercount',));
     }
 
     /**
