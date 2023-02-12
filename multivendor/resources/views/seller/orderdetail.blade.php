@@ -100,7 +100,7 @@
                   <hr>
                   <div class="row">
                      <div class="col-sm-3">
-                        <p class="mb-0">Item Neme</p>
+                        <p class="mb-0">Item Name</p>
                      </div>
                      <div class="col-sm-9">
                         <p class="text-muted mb-0">{{$order->pname}}</p>
@@ -110,7 +110,7 @@
                   <hr>
                   <div class="row">
                      <div class="col-sm-3">
-                        <p class="mb-0">Quentity</p>
+                        <p class="mb-0">Quantity</p>
                      </div>
                      <div class="col-sm-9">
                         <p class="text-muted mb-0">{{$order->oqun}}</p>
