@@ -55,8 +55,12 @@ class SellerController extends Controller
 
             //get toatl renue
 
+        
+
+
             $revenuetotal = DB::table('orders')
-            ->sum('oprice');
+            ->sum(DB::raw('oprice * oqun'));
+
 
 
             //Getting data from table orders,products & users
