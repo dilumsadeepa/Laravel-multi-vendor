@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('banner');
-            $table->string('shopprofile');
-            $table->string('shopdis');
+            $table->string('banner')->nullable();
+            $table->string('shopprofile')->nullable();
+            $table->string('shopdis')->nullable();
             $table->string('sellerid');
-            $table->json('catagory');
+            $table->json('catagory')->nullable();
             $table->timestamps();
         });
     }
