@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('shopprofile')->nullable();
             $table->string('shopdis')->nullable();
             $table->string('sellerid');
-            $table->json('catagory')->nullable();
+            $table->string('catagory')->nullable();
             $table->timestamps();
         });
     }
