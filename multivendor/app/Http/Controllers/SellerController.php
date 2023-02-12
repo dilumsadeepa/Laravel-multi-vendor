@@ -20,7 +20,7 @@ class SellerController extends Controller
     public function index()
     {
 
-        $shopcount = DB::table('shops')->count();
+        $shopcount = DB::table('shops')->where('sellerid', Auth::user()->id)->count();
 
         if($shopcount == 0){
             $shop = new Shop();
