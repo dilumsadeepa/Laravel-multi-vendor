@@ -132,8 +132,9 @@
                         </td>
                         <td>
                            <button type="button" class="btn btn-success btn-icon-text">
-                           <i class="ti-file btn-icon-append"></i>                                                    
-                           <a href="{{route('order.show', $order->id )}}" style="text-decoration: none;">View</a>
+                                                                             
+                           <a href="{{route('order.show', $order->id )}}" style="text-decoration: none;">
+                            <i class="ti-file btn-icon-append"></i>  View</a>
                            </button>
                         </td>
                      </tr>
