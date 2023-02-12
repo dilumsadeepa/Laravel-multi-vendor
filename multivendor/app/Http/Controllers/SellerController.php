@@ -26,7 +26,7 @@ class SellerController extends Controller
         if($shopcount == 0){
             $shop = new Shop();
 
-            $shop->title = Auth::user()->firstname;
+            $shop->title = Auth::user()->name;
             $shop->sellerid = Auth::user()->id;
 
             $shop->save();
@@ -55,7 +55,7 @@ class SellerController extends Controller
 
             //get toatl renue
 
-        
+
 
 
             $revenuetotal = DB::table('orders')
@@ -95,7 +95,7 @@ class SellerController extends Controller
      */
     public function store(StoreSellerRequest $request)
     {
-        
+
     }
 
     /**
@@ -106,7 +106,7 @@ class SellerController extends Controller
      */
     public function show(Seller $seller)
     {
-        
+
     }
 
     /**
