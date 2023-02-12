@@ -50,8 +50,17 @@ class SellerController extends Controller
 
             $AllOrderCount = DB::table('orders')->count();
 
+            //Getting data from table orders,products & users
+            $orders = DB::table('orders')
+            ->join('products', 'products.id', '=', 'orders.productid')
+            ->join('users', 'users.id', '=', 'orders.cusid')
+            ->select('orders.*','users.*','products.*')
+            ->get();
 
-            return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount]);
+            
+
+
+            return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount,'orders'=>$orders]);
         }
 
 
@@ -76,7 +85,7 @@ class SellerController extends Controller
      */
     public function store(StoreSellerRequest $request)
     {
-        //
+        
     }
 
     /**
@@ -87,7 +96,7 @@ class SellerController extends Controller
      */
     public function show(Seller $seller)
     {
-        //
+        
     }
 
     /**
