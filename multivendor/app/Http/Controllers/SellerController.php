@@ -19,9 +19,10 @@ class SellerController extends Controller
      */
     public function index()
     {
-
+        //Get shop count
         $shopcount = DB::table('shops')->where('sellerid', Auth::user()->id)->count();
 
+        //Shop count checking
         if($shopcount == 0){
             $shop = new Shop();
 
@@ -32,22 +33,24 @@ class SellerController extends Controller
 
             return redirect()->route('seller.index');
         }else{
+            //Get today date
             $today = Carbon::today();
 
+            //Get today order count
             $TodayOrderCount = DB::table('orders')
                         ->whereDate('created_at', $today)
                         ->count();
 
-
+            //Get first and last day of month
             $firstDayOfMonth = Carbon::create($today->year, $today->month, 1);
             $lastDayOfMonth = Carbon::create($today->year, $today->month, $today->daysInMonth);
 
-
+            //Get count of the orders current month
             $MonthOrderCount = DB::table('orders')
                 ->whereBetween('created_at', [$firstDayOfMonth, $lastDayOfMonth])
                 ->count();
 
-
+            //Get all order count
             $AllOrderCount = DB::table('orders')->count();
 
             //Getting data from table orders,products & users
@@ -57,9 +60,7 @@ class SellerController extends Controller
             ->select('orders.*','users.*','products.*')
             ->get();
 
-            
-
-
+            //Passing data to front end
             return view('seller.index',['MonthOrderCount'=>$MonthOrderCount,'TodayOrderCount'=>$TodayOrderCount,'AllOrderCount'=>$AllOrderCount,'orders'=>$orders]);
         }
 
