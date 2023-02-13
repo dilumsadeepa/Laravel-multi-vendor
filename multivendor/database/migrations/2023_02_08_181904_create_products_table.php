@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('pname');
             $table->string('pimg');
+            $table->string('pvideo');
             $table->string('pprice');
             $table->text('pdis');
             $table->text('pshort');

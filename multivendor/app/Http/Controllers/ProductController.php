@@ -53,6 +53,7 @@ class ProductController extends Controller
             'pname' => 'required',
             'pimg' => 'required',
             'pimg.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024000000',
+            'file' => 'required',
             'pprice' => 'required|numeric',
             'pdis' => 'required',
             'pshort' => 'required',
@@ -65,6 +66,7 @@ class ProductController extends Controller
         [
             'pname.required' => 'The Product title is required.',
             'pimg.required' => 'The image is required and it must lower than 5048000KB',
+            'file.required' => 'Video is required',
             'pprice.required' => 'The price is required.',
             'ppdis.required' => 'The Discriptin is required.',
             'pshort.required' => 'The Short discription is required.',
@@ -89,6 +91,9 @@ class ProductController extends Controller
 
         $imgname = implode(",", $images);
 
+        $fileName = time().'.'.$request->file->extension();
+
+        $request->file->move(public_path('uploads'), $fileName);
 
 
 
@@ -96,6 +101,7 @@ class ProductController extends Controller
 
         $product->pname = $request->pname;
         $product->pimg = $imgname;
+        $product->pvideo = $fileName;
         $product->pprice = $request->pprice;
         $product->pdis = $request->pdis;
         $product->pshort = $request->pshort;
@@ -107,7 +113,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('product.index')->with('success','Product has been added successfully.');
+        return response()->json(['message' => 'Video uploaded successfully']);
     }
 
     /**
