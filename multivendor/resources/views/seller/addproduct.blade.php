@@ -78,59 +78,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Product Title</label>
-                                <div class="col-sm-9">
-                                <input type="text" class="form-control" name="pname">
-                                </div>
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Product Price</label>
-                                <div class="col-sm-9">
-                                <input type="text" class="form-control" name="pprice">
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Select Shop</label>
-                                <div class="col-sm-9">
-                                <select class="form-control" name="pshopid">
-                                    @foreach($shops as $s)
-                                        <option value="{{$s->id}}">{{$s->title}}</option>
-                                    @endforeach
-                                </select>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Quantity</label>
-                                <div class="col-sm-9">
-                                <input type="number" class="form-control" placeholder="" name="pqun"/>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Category</label>
-                                <div class="col-sm-9">
-                                <select class="form-control" name="pcatid">
-                                    @foreach($catagory as $c)
-                                        <option value="{{$c->catname}}">{{$c->catname}}</option>
-                                    @endforeach
 
-                                </select>
-                                </div>
-                            </div>
-                            </div>
 
                             <div class="col-md-6">
                                 <div class="form-group row">
