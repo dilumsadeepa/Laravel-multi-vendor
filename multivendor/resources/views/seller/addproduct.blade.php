@@ -15,17 +15,70 @@
 
         <form id="fileUploadForm" action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="st1">
-                <div class="col-12 grid-margin">
-                    <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Add product</h4>
-                        <form class="form-sample">
-                        <p class="card-description">
-                            Product info
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add product</h4>
+                    <form class="form-sample">
+                      <p class="card-description">
+                        Product info
+                      </p>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Product Title</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="pname">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Product Price</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="pprice" placeholder="$">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Select Shop</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" name="pshopid">
+                                @foreach($shops as $s)
+                                    <option value="{{$s->id}}">{{$s->title}}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Quantity</label>
+                            <div class="col-sm-9">
+                              <input type="number" class="form-control" placeholder="" name="pqun"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" name="pcatid">
+                                @foreach($catagory as $c)
+                                    <option value="{{$c->catname}}">{{$c->catname}}</option>
+                                @endforeach
+
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Product Title</label>
                                 <div class="col-sm-9">
@@ -204,7 +257,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-    <script>
+    {{-- <script>
         $(function () {
             $(document).ready(function () {
                 $('#fileUploadForm').ajaxForm({
@@ -223,7 +276,7 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 
     <script>
         const previewImage = (event) => {

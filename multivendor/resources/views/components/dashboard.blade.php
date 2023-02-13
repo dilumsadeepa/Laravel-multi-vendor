@@ -16,6 +16,8 @@ $time = Carbon::now()->format('H:i:s');
   <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
@@ -68,17 +70,20 @@ $time = Carbon::now()->format('H:i:s');
           </button>
           <ul class="navbar-nav mr-lg-2">
             <li class="nav-item nav-search d-none d-lg-block">
-              <div class="input-group">
+              {{-- <div class="input-group">
                 <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                   <span class="input-group-text" id="search">
                     <i class="icon-search"></i>
                   </span>
                 </div>
                 <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
-              </div>
+              </div> --}}
             </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item">
+                <a href="" class="nav-link"><i class="fa-solid fa-coins"></i><strong> $50</strong></a>
+            </li>
              {{-- <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                 <i class="icon-bell mx-0"></i>
@@ -128,10 +133,10 @@ $time = Carbon::now()->format('H:i:s');
               </div>
             </li> --}}
             <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown" style="border:none;">
                 {{-- @if (Auth::user()->profile_photo_url) --}}
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                        <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                        <button class="flex text-sm border-0 border-transparent rounded-full focus:outline-none transition">
                             <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->firstname }}" />
                         </button>
                     @else
@@ -301,8 +306,8 @@ $time = Carbon::now()->format('H:i:s');
 
         <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023. All rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">WEBM99 <i class="ti-heart text-danger ml-1"></i></span>
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023. All rights reserved ADREW.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Develop By. WEBM99 <i class="ti-heart text-danger ml-1"></i></span>
 
             </div>
           </footer>

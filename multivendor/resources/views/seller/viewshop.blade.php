@@ -296,7 +296,7 @@
 
                                                                             <div class="">
                                                                                 <h2>{{ $shop->title }}</h2>
-                                                                                <h6>10 ITEMS - 21 SALE</h6>
+                                                                                <h6>Products {{$items}} - {{$ordercount}} SALE</h6>
                                                                                 {{-- <span class="fa fa-star active"></span>
                                                                                 <span class="fa fa-star active"></span>
                                                                                 <span class="fa fa-star active"></span>
