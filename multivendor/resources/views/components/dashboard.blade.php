@@ -16,6 +16,8 @@ $time = Carbon::now()->format('H:i:s');
   <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
@@ -79,6 +81,9 @@ $time = Carbon::now()->format('H:i:s');
             </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item">
+                <a href="" class="nav-link"><i class="fa-solid fa-coins"></i><strong> $50</strong></a>
+            </li>
              {{-- <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                 <i class="icon-bell mx-0"></i>
@@ -127,7 +132,7 @@ $time = Carbon::now()->format('H:i:s');
                 </a>
               </div>
             </li> --}}
-            <li class="nav-item nav-profile dropdown">
+            <li class="nav-item nav-profile dropdown ml-2">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                 {{-- @if (Auth::user()->profile_photo_url) --}}
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
