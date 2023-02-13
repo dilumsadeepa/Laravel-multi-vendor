@@ -71,7 +71,7 @@
                <div class="card card-light-danger">
                   <div class="card-body">
                      <p class="mb-4">Toatl Revenue</p>
-                     <p class="fs-30 mb-2">EUR {{$revenuetotal}}</p>
+                     <p class="fs-30 mb-2">$ {{$revenuetotal}}</p>
                      <p>0.22% (30 days)</p>
                   </div>
                </div>
@@ -125,7 +125,7 @@
                         </td>
                         <td>
                            <!-- Currency should be set in here -->
-                           {{number_format($order->oqun*$order->oprice, 2)}}
+                           ${{number_format($order->oqun*$order->oprice, 2)}}
                         </td>
                         <td>
                            {{$order->created_at}}  

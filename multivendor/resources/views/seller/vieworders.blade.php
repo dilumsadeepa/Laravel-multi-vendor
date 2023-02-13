@@ -45,7 +45,7 @@
                         </td>
                         <td>
                            <!-- Currency should be set in here -->
-                           {{number_format($order->oqun*$order->oprice, 2)}}
+                           ${{number_format($order->oqun*$order->oprice, 2)}}
                         </td>
                         <td>
                            {{$order->created_at}}  
