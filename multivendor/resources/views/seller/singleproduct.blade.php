@@ -111,6 +111,13 @@
               <div thumbsSlider="" class="swiper mySwiper">
 
                 <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <video width="100%">
+                            <source src="{{ asset('uploads/'.$product->pvideo) }}" type="video/mp4">
+
+                            Your browser does not support the video tag.
+                          </video>
+                    </div>
                     @foreach($images as $i)
                         <div class="swiper-slide">
                             <img src="{{ asset('uploads/'.$i) }}" />

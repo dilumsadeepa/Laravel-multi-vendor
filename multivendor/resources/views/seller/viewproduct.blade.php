@@ -95,8 +95,8 @@
                                 </div>
                                 <h6 class="text-success">Pending Orders</h6> --}}
                                 <div class="d-flex flex-column mt-4">
-                                    <a class="btn btn-primary btn-sm" href="{{route('product.show', $p->id )}}">Details</a>
-                                    <a class="btn btn-outline-primary btn-sm mt-2" href="{{route('product.edit', $p->id)}}">
+                                    <a class="btn btn-primary btn-sm" href="{{route('product.show', $p->id )}}" style="width: 180px">Details</a>
+                                    <a class="btn btn-outline-primary btn-sm mt-2" href="{{route('product.edit', $p->id)}}" style="width: 180px">
                                     Update Item
                                     </a>
 
