@@ -30,6 +30,11 @@
 
             <section style="background-color: #eee;">
                 <div class="container py-5">
+
+
+
+
+
                   <div class="row justify-content-center mb-3">
 
                     @foreach ($products as $p)
@@ -41,9 +46,17 @@
                                 <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
                                     @php
-                                        $images = explode(",", $p->pimg)
-                                    @endphp
+                                    $images = explode(",", $p->pimg)
+                                @endphp
+                                    @if($p->dop == 'digital')
+                                    <video controls autoplay muted width="100%" height="100%">
+                                        <source src="{{ asset('uploads/'.$p->pvideo) }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                      </video>
+                                    @else
+
                                     <img src="{{ asset('uploads/'.$images[0]) }}" class="w-100" />
+                                    @endif
                                     <a href="#!">
                                     <div class="hover-overlay">
                                         <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
