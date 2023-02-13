@@ -91,6 +91,13 @@
 
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
                 <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <video controls width="100%">
+                            <source src="{{ asset('uploads/'.$product->pvideo) }}" type="video/mp4">
+
+                            Your browser does not support the video tag.
+                          </video>
+                    </div>
                     @foreach($images as $i)
                         <div class="swiper-slide">
                             <img src="{{ asset('uploads/'.$i) }}" />
@@ -102,6 +109,7 @@
                 <div class="swiper-button-prev"></div>
               </div>
               <div thumbsSlider="" class="swiper mySwiper">
+
                 <div class="swiper-wrapper">
                     @foreach($images as $i)
                         <div class="swiper-slide">
@@ -151,11 +159,7 @@
 
             </div>
             <div class="d-flex pt-2">
-                <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
-                <div class="d-inline-flex">
-                    {!! Share::page(url('/product/'. $product->id))->facebook()->twitter()->whatsapp()->telegram() !!}
 
-                </div>
             </div>
         </div>
     </div>
