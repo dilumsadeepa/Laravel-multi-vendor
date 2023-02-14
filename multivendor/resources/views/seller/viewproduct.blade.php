@@ -5,8 +5,11 @@
 
 
             @if ($message = Session::get('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <p>{{ $message }}</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
         @endif
 
@@ -17,9 +20,14 @@
             <h1>All Products</h1>
             </div>
             <div class="col-sm-6">
+
             <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item active">All Products</li>
+            </ol>
+
+            <ol class="breadcrumb float-sm-right mr-3">
+                <li class="breadcrumb-item"><a href="{{route('product.create')}}" style="text-decoration:none;">Add Products</a></li>
             </ol>
             </div>
             </div>
@@ -42,27 +50,29 @@
                         <div class="col-md-12 col-xl-10 mb-2">
                         <div class="card shadow-0 border rounded-3">
                             <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                                <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                                    @php
-                                    $images = explode(",", $p->pimg)
+                            <div class="row pl-2">
+                                @php
+                                $images = explode(",", $p->pimg)
                                 @endphp
-                                    @if($p->dop == 'digital')
-                                    <video controls autoplay muted width="100%" height="100%">
-                                        <source src="{{ asset('uploads/'.$p->pvideo) }}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                      </video>
-                                    @else
 
-                                    <img src="{{ asset('uploads/'.$images[0]) }}" class="w-100" />
+                                @if($p->dop == 'digital')
+                                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0 ">
+                                <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                <video controls autoplay muted width="100%" height="100%">
+                                    <source src="{{ asset('uploads/'.$p->pvideo) }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                  </video>
+                                </div>
+                                @else
+                                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0 " style="background-image: url('{{ asset('uploads/'.$images[0]) }}'); background-position: center; background-repeat: no-repeat; background-size: cover; width = 100%;">
+                                    <div class="bg-image hover-zoom ripple rounded ripple-surface w-100">
+                                    {{-- <img src="{{ asset('uploads/'.$images[0]) }}" class="w-100" /> --}}
+                                    </div>
+
                                     @endif
                                     <a href="#!">
-                                    <div class="hover-overlay">
-                                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
-                                    </div>
                                     </a>
-                                </div>
+
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
                                 <h4>{{$p->pname}}</h4>
