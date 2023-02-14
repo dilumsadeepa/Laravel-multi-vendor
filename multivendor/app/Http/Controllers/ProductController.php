@@ -113,7 +113,8 @@ class ProductController extends Controller
 
         $product->save();
 
-        return response()->json(['message' => 'Video uploaded successfully']);
+        return redirect()->route('product.index')->with('success','Product has been added successfully.');
+        // return response()->json(['message' => 'Video uploaded successfully']);
     }
 
     /**

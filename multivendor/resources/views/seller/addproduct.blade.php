@@ -41,8 +41,11 @@
                           </div>
                         </div>
                       </div>
+                      @foreach($shops as $s)
+                      <input type="hidden" value="{{$s->id}}" name="pshopid">
+                      @endforeach
                       <div class="row">
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Select Shop</label>
                             <div class="col-sm-9">
@@ -53,7 +56,7 @@
                               </select>
                             </div>
                           </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Quantity</label>
@@ -119,7 +122,7 @@
                         <div class="row">
                             <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Product Image</label>
+                                <label class="col-sm-3 col-form-label">Product Images</label>
                                 <div class="col-sm-9">
                                     <div class="form-group">
                                         <div class="form-group">

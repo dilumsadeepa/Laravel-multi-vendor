@@ -1,5 +1,5 @@
 <x-dashboard>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .thumbwrapper{
             margin-top: 80px;
@@ -91,19 +91,32 @@
 
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
                 <div class="swiper-wrapper">
+                    @if($product->pvideo)
                     <div class="swiper-slide">
-                        <video controls width="100%">
+                        <a data-fancybox="gallery" href="#myVideo">
+                        <video controls autoplay id="myVideo" width="100%">
                             <source src="{{ asset('uploads/'.$product->pvideo) }}" type="video/mp4">
 
                             Your browser does not support the video tag.
                           </video>
+                        </a>
                     </div>
                     @foreach($images as $i)
                         <div class="swiper-slide">
+                            <a href="{{ asset('uploads/'.$i) }}" data-fancybox="gallery" data-caption="{{$product->pname}} - Price : ${{$product->pprice}}">
                             <img src="{{ asset('uploads/'.$i) }}" />
+                            </a>
                         </div>
                     @endforeach
-
+                    @else
+                    @foreach($images as $i)
+                        <div class="swiper-slide">
+                            <a href="{{ asset('uploads/'.$i) }}" data-fancybox="gallery" data-caption="{{$product->pname}} - Price : ${{$product->pprice}}">
+                            <img src="{{ asset('uploads/'.$i) }}" />
+                            </a>
+                        </div>
+                    @endforeach
+                    @endif
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -111,6 +124,7 @@
               <div thumbsSlider="" class="swiper mySwiper">
 
                 <div class="swiper-wrapper">
+                    @if($product->pvideo)
                     <div class="swiper-slide">
                         <video width="100%">
                             <source src="{{ asset('uploads/'.$product->pvideo) }}" type="video/mp4">
@@ -119,11 +133,17 @@
                           </video>
                     </div>
                     @foreach($images as $i)
+                    <div class="swiper-slide">
+                        <img src="{{ asset('uploads/'.$i) }}" />
+                    </div>
+                @endforeach
+                    @else
+                    @foreach($images as $i)
                         <div class="swiper-slide">
                             <img src="{{ asset('uploads/'.$i) }}" />
                         </div>
                     @endforeach
-
+                    @endif
                 </div>
               </div>
 
@@ -196,6 +216,20 @@
         },
       });
     </script>
+
+
+{{-- <script>
+    $('[data-fancybox="gallery"]').fancybox({
+	// Options will go here
+});
+</script> --}}
+
+
+
+
+
+
+
 
 <style>
     div#social-links {

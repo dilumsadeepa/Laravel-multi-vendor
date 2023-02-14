@@ -4,6 +4,32 @@
    $time = Carbon::now()->format('H:i:s');
    ?>
 <x-dashboard>
+    <style>
+.swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0px !important;
+    }
+
+    </style>
+
+
    <div class="row">
       <div class="col-md-12 grid-margin">
          <div class="row">
@@ -18,12 +44,50 @@
    <div class="row">
       <div class="col-md-6 grid-margin stretch-card">
          <div class="card tale-bg">
-            <div class="card-people mt-auto">
-               <img src="images/dashboard/online-shopping-concept.svg" alt="people" style="max-height: 310px">
+            <div class="card-people" style="padding-top: 0; border-radius: 30px;">
+
+                {{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/dashboard/online-shopping-concept.svg" alt="First slide" style="max-height: 310px">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="images/dashboard/online-shopping-concept.svg" alt="Second slide" style="max-height: 310px">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="images/dashboard/online-shopping-concept.svg" alt="Third slide" style="max-height: 310px">
+                      </div>
+                    </div>
+                  </div> --}}
+
+
+                  <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/carousel/banner_1.jpg" alt="people" style="max-height: 310px"></div>
+                    <div class="swiper-slide"><img src="images/carousel/banner_2.jpg" alt="people" style="max-height: 310px"></div>
+                    <div class="swiper-slide"><img src="images/carousel/banner_3.jpg" alt="people" style="max-height: 310px"></div>
+                    <div class="swiper-slide"><img src="images/carousel/banner_4.jpg" alt="people" style="max-height: 310px"></div>
+                    <div class="swiper-slide"><img src="images/carousel/banner_5.jpg" alt="people" style="max-height: 310px"></div>
+                    <div class="swiper-slide"><img src="images/carousel/banner_6.jpg" alt="people" style="max-height: 310px"></div>
+                    <div class="swiper-slide"><img src="images/carousel/banner_7.jpg" alt="people" style="max-height: 310px"></div>
+                    <div class="swiper-slide"><img src="images/carousel/banner_8.jpg" alt="people" style="max-height: 310px"></div>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                    </div>
+
+
+
+               {{-- <img src="images/dashboard/online-shopping-concept.svg" alt="people" style="max-height: 310px"> --}}
                <div class="weather-info">
                   <div class="d-flex">
                      <div>
-                        {{-- 
+                        {{--
                         <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>Stats @</h2>
                         --}}
                      </div>
@@ -121,18 +185,18 @@
                            {{$order->firstname}}
                         </td>
                         <td>
-                           {{$order->paymentstatus}}  
+                           {{$order->paymentstatus}}
                         </td>
                         <td>
                            <!-- Currency should be set in here -->
                            ${{number_format($order->oqun*$order->oprice, 2)}}
                         </td>
                         <td>
-                           {{$order->created_at}}  
+                           {{$order->created_at}}
                         </td>
                         <td>
                            <button type="button" class="btn btn-success btn-icon-text">
-                                                                             
+
                            <a href="{{route('order.show', $order->id )}}" style="text-decoration: none;">
                             <i class="ti-file btn-icon-append"></i>  View</a>
                            </button>
@@ -147,4 +211,27 @@
    </div>
    </div>
    </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 60000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+
+
 </x-dashboard>
