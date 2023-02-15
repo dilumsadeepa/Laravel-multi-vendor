@@ -59,11 +59,12 @@ class OrderController extends Controller
         $orders = DB::table('orders')
         ->join('products', 'products.id', '=', 'orders.productid')
         ->join('users', 'users.id', '=', 'orders.cusid')
+        ->where('orders.id',$order->id)
         ->select('orders.*','users.*','products.*')
         ->get();
 
         //Pass data to front end
-        return view('seller.orderdetail', compact('orders'));
+        return view('seller.orderdetail', compact('orders','users','products'));
         
     }
 
