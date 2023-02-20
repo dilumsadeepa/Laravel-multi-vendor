@@ -67,7 +67,7 @@ class SellerController extends Controller
             $orders = DB::table('orders')
             ->join('products', 'products.id', '=', 'orders.productid')
             ->join('users', 'users.id', '=', 'orders.cusid')
-            ->select('orders.*','users.*','products.*')
+            ->select('orders.*','orders.id AS orderid','users.*','products.*')
             ->get();
 
             //Passing data to front end

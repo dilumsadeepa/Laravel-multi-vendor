@@ -19,11 +19,12 @@ class OrderController extends Controller
     {
         $orders = DB::table('orders')
         ->join('users', 'users.id', '=', 'orders.cusid')
-        ->select('orders.*', 'users.*')
+        ->select('orders.*','orders.id AS orderid', 'users.*')
         ->get();
 
         //$orders = DB::select('select * from orders');
         return view('seller.vieworders',compact('orders'));
+         return view('seller.index',compact('orders'));
     }
 
     /**

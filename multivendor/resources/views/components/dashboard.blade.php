@@ -38,7 +38,7 @@ $time = Carbon::now()->format('H:i:s');
 
   {{-- swiper slider --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" />
 
 {{-- End of Form external css for dashboards --}}
 
@@ -81,9 +81,11 @@ $time = Carbon::now()->format('H:i:s');
             </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
+
             <li class="nav-item">
-                <a href="" class="nav-link"><i class="fa-solid fa-coins"></i><strong> $50</strong></a>
+                <a href="" class="nav-link" style="color:green"><strong> $50</strong></a>
             </li>
+
              {{-- <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                 <i class="icon-bell mx-0"></i>
@@ -223,7 +225,14 @@ $time = Carbon::now()->format('H:i:s');
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+            <a class="nav-link" href="{{route('product.index')}}">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Product</span>
+            </a>
+          </li>
+
+          {{-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="{{route('product.index')}}" aria-expanded="false" aria-controls="form-elements">
               <i class="icon-columns menu-icon"></i>
               <span class="menu-title">Product</span>
               <i class="menu-arrow"></i>
@@ -234,9 +243,16 @@ $time = Carbon::now()->format('H:i:s');
                 <li class="nav-item"><a class="nav-link" href="{{route('product.index')}}">View Product</a></li>
               </ul>
             </div>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
+            <a class="nav-link" href="{{url('vieworders')}}">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Orders</span>
+            </a>
+          </li>
+
+          {{-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
               <i class="icon-bar-graph menu-icon"></i>
               <span class="menu-title">Orders</span>
@@ -247,7 +263,7 @@ $time = Carbon::now()->format('H:i:s');
                 <li class="nav-item"> <a class="nav-link" href="{{url('vieworders')}}">View Orders</a></li>
               </ul>
             </div>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
@@ -364,6 +380,12 @@ $time = Carbon::now()->format('H:i:s');
 
 {{-- swiper js --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.4/swiper-bundle.min.js" integrity="sha512-hQQhpacNvYwkN+PyMQghLPCql/6OQfWNKVUkpW0KgCB5XjqtIkxm8UYny+gTjvIfvE/CrqrKEUOLotbHBFs/0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{{-- fancy box js --}}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
 
 </body>
 

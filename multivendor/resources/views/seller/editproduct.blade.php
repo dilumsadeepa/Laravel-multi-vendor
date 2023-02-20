@@ -137,18 +137,42 @@
 
                                     <input type="hidden" id="pimg" name="pimg" value="{{$product->pimg}}">
 
-                                    {{-- <input type="file" name="pimg[]" multiple class="file-upload-default" onchange="previewImage(event);">
+                                    <input type="file" name="primg[]" multiple class="file-upload-default" onchange="previewImage(event);">
                                     <div class="input-group col-xs-12">
                                       <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                       <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                                       </span>
-                                    </div> --}}
+                                    </div>
                                   </div>
                             </div>
                         </div>
                       </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Product Video</label>
+                            <div class="col-sm-9">
+                                <div class="form-group">
+                                    <div class="form-group">
+
+
+                                        {{-- <input type="file" name="pimg[]" multiple class="file-upload-default"> --}}
+                                        <input type="file" name="file" id="inputFile" class="file-upload-default" @error('file') is-invalid @enderror">
+
+                                        <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Video">
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="preview">
                             <img id="preview-selected-image" class="img-fluid" />
