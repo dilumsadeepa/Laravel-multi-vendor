@@ -83,7 +83,7 @@ $time = Carbon::now()->format('H:i:s');
           <ul class="navbar-nav navbar-nav-right">
 
             <li class="nav-item">
-                <a href="" class="nav-link"><i class="fa-solid fa-coins"></i><strong> $50</strong></a>
+                <a href="" class="nav-link" style="color:green"><strong> $50</strong></a>
             </li>
 
              {{-- <li class="nav-item dropdown">

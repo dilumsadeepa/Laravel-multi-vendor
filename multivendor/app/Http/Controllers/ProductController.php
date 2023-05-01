@@ -175,7 +175,55 @@ class ProductController extends Controller
 
         ]);
 
-        $product->update($request->all());
+        $images = [];
+        if ($request->primg){
+            foreach($request->primg as $key => $image)
+            {
+                $imageName = time().rand(1,99).'.'.$image->extension();
+                $image->move(public_path('uploads'), $imageName);
+
+                $images[] = $imageName;
+            }
+
+            $imgname = implode(",", $images);
+
+        }else{
+            $imagename = $request->pimg;
+        }
+
+
+        $fileName = "";
+
+        if($request->file){
+            $fileName = time().'.'.$request->file->extension();
+
+            $request->file->move(public_path('uploads'), $fileName);
+        }
+
+        $affected = DB::update(
+            'update products set pname=?,
+            pimg=?,
+            pvideo=?,
+            pprice=?,
+            pdis=?,
+            pshort=?,
+            pshopid=?,
+            pcatid=?,
+            psubcat=?,
+            dop=?,
+            pqun =?  where id = ?',
+            [$request->pname,
+            $imgname,
+            $fileName,
+            $request->pprice,
+            $request->pdis,
+            $request->pshort,
+            $request->pshopid,
+            $request->pcatid,
+            $request->psubcat,
+            $request->dop,
+            $request->pqun, $product->id]
+        );
 
         return redirect()->route('product.index')
                         ->with('success','Product updated successfully');

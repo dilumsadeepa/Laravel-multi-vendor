@@ -35,10 +35,10 @@
                         @foreach($orders as $order)
                         <td class="py-1">
                            <!-- User image is not set and can't set the image right now -->
-                           <img src="../../images/faces/face1.jpg" alt="image"/>
+                           <img src="{{asset('images/faces/face1.jpg')}}" alt="image"/>
                         </td>
                         <td>
-                           {{$order->firstname}}
+                           {{$order->name}}
                         </td>
                         <td>
                            {{$order->paymentstatus}}  
@@ -49,11 +49,15 @@
                         </td>
                         <td>
                            {{$order->created_at}}  
+                           
                         </td>
+                        <!--<td>-->
+                        <!--    {{$order->orderid}}-->
+                        <!--</td>-->
                         <td>
                            <button type="button" class="btn btn-success btn-icon-text">
                                                                               
-                           <a href="{{route('order.show', $order->id )}}" style="text-decoration: none;">
+                           <a href="{{route('order.show', $order->orderid )}}" style="text-decoration: none;">
                             <i class="ti-file btn-icon-append"></i> View</a>
                            </button>
                         </td>

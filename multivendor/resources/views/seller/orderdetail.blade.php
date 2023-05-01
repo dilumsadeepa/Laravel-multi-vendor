@@ -23,7 +23,7 @@
                         <div class="card-body">
                            <h4 class="card-title">Tracking Number</h4>
                            <p class="card-description">
-                              Use the <code>.form-inline</code> class to display a series of labels, form controls, and buttons on a single horizontal row
+                              Add tracking number
                            </p>
                            <form class="form-inline">
                               <label class="sr-only" for="inlineFormInputName2">Name</label>
@@ -65,7 +65,7 @@
                         <p class="mb-0">Full Name</p>
                      </div>
                      <div class="col-sm-9">
-                        <p class="text-muted mb-0">{{$order->firstname}}&nbsp{{$order->lastname}}</p>
+                        <p class="text-muted mb-0">{{$order->name}}&nbsp{{$order->lastname}}</p>
                      </div>
                   </div>
                   <hr>
